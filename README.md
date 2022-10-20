@@ -17,7 +17,7 @@ Activate Env
 `conda activate superiear`
 
 Install dependencies
-`pip install -r requirements`
+`pip install -r requirements.txt`
 
 
 ## Creating training data
