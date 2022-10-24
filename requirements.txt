@@ -8,7 +8,7 @@ Babel==2.10.3
 backcall==0.2.0
 beautifulsoup4==4.11.1
 bleach==5.0.1
-certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_0ek9yztvu3/croot/certifi_1665076692562/work/certifi
+# certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_0ek9yztvu3/croot/certifi_1665076692562/work/certifi
 cffi==1.15.1
 charset-normalizer==2.1.1
 debugpy==1.6.3
@@ -80,3 +80,8 @@ wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==1.4.1
 zipp==3.9.0
+matplotlib==3.6.1
+pydub==0.25.1
+torch==1.14.0.dev20221020
+torchvision==0.15.0.dev20221020
+tqdm==4.64.1
