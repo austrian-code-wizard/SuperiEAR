@@ -8,17 +8,18 @@ import torch.optim as optim
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset, DataLoader
-from torchviz import make_dot
 from torch.utils.tensorboard import SummaryWriter
 
 
 import time
-NUM_EPOCHS = 100
+NUM_EPOCHS = 1000
 LEARNING_RATE = 1e-3
-DECAY = 0.99
+DECAY = 0.997
 BATCH_SIZE = 128
 TRACK_LENGTH = 7
-FRAMERATE = 44100
+FRAMERATE = int(44100)
+
+PICKUP_EPOCH = 44
 
 random.seed(0)
 
@@ -50,44 +51,25 @@ class AudioDataset(Dataset):
         return {'processed': processed, 'original': raw}
 
 
-sizes = [1024, 512, 256, 256]
-
-
 class DeepAutoencoder(nn.Module):
     def __init__(self):
         super(DeepAutoencoder, self).__init__()
+        # Encoder
         self.encoder = nn.Sequential(
-            nn.Linear(TRACK_LENGTH * FRAMERATE, sizes[0]),
-            nn.ReLU(True),
-            nn.Linear(sizes[0], sizes[1]),
-            nn.ReLU(True),
-            nn.Linear(sizes[1], sizes[2]),
-            nn.ReLU(True),
-            nn.Linear(sizes[2], sizes[3]),
+            nn.Conv2d(1, 32, 3, 1, 1),
             nn.ReLU(True),
         )
+
+        # Decoder
         self.decoder = nn.Sequential(
-            nn.Linear(sizes[3], sizes[2]),
+            nn.ConvTranspose2d(32, 1, 3, 1, 1),
             nn.ReLU(True),
-            nn.Linear(sizes[2], sizes[1]),
-            nn.ReLU(True),
-            nn.Linear(sizes[1], sizes[0]),
-            nn.ReLU(True),
-            nn.Linear(sizes[0], TRACK_LENGTH * FRAMERATE),
-            nn.Tanh()
         )
 
     def forward(self, x):
         x = self.encoder(x)
         x = self.decoder(x)
         return x
-
-
-def draw_map(net):
-    x = torch.randn(1, TRACK_LENGTH * FRAMERATE)
-    y = net(x)
-    g = make_dot(y)
-    g.render('DAE', view=False)
 
 
 def get_device():
@@ -98,17 +80,23 @@ def get_device():
     return device
 
 
+print("Running from device: ", get_device())
 writer = SummaryWriter()
 
 
-def train(net, trainloader, valloader, valset, NUM_EPOCHS, device, criterion, optimizer):
+def train(net, trainloader, valloader, valset, start_epoch, NUM_EPOCHS, device, criterion, optimizer):
     train_loss = []
-    for epoch in range(NUM_EPOCHS):
+    for epoch in range(start_epoch, NUM_EPOCHS):
         t0 = time.time()
         running_loss = 0.0
         for data in trainloader:
             original = data['original'].to(device)
             processed = data['processed'].to(device)
+            if processed.shape[0] != BATCH_SIZE:
+                continue
+            # reshape to (batch_size, 1, track_length, 1)
+            original = original.reshape(BATCH_SIZE, 1, -1, 1)
+            processed = processed.reshape(BATCH_SIZE, 1, -1, 1)
             optimizer.zero_grad()
             outputs = net(processed)
             loss = criterion(outputs, original)
@@ -123,36 +111,35 @@ def train(net, trainloader, valloader, valset, NUM_EPOCHS, device, criterion, op
             epoch+1, loss, time.time() - t0))
         torch.save(net.state_dict(), f'./models/dae_{epoch}.pth')
         evaluate(net, valloader, valset, criterion, device, epoch)
-        torch.save(net.state_dict(),
-                   'DAE-checkpoints/DAE-epoch{}.pth'.format(epoch))
-        test(net, valloader, device)
+        # test(net, valloader, device)
     return train_loss
 
 
-def save_test_example(epoch, net, valset, device, output_dir="./val_examples"):
+def save_test_example(epoch, net, valloader, device, output_dir="./val_examples"):
     make_dir(output_dir)
     output_dir = os.path.join(output_dir, f"epoch_{epoch}")
     make_dir(output_dir)
-    val_examples = [random.randint(0, len(valset)) for _ in range(10)]
-    with torch.no_grad():
-        for idx in val_examples:
-            try:
-                data = valset[idx]
-                original = data['original'].to(device)
-                processed = data['processed'].to(device)
-                outputs = net(processed)
-                torchaudio.save(f"{output_dir}/{idx}_raw.wav",
-                                original.reshape(1, -1), FRAMERATE)
-                writer.add_audio(f"raw/{idx}", original, epoch)
-                torchaudio.save(f"{output_dir}/{idx}_noisy.wav",
-                                processed.reshape(1, -1), FRAMERATE)
-                writer.add_audio(f"noisy/{idx}", processed, epoch)
-                torchaudio.save(f"{output_dir}/{idx}_restored.wav",
-                                outputs.reshape(1, -1), FRAMERATE)
-                writer.add_audio(f"restored/{idx}", outputs, epoch)
-            except Exception as e:
-                print(e)
-    pass
+    for i, data in enumerate(valloader):
+        original = data['original'].to(device)
+        processed = data['processed'].to(device)
+        if processed.shape[0] != BATCH_SIZE:
+            continue
+        # reshape to (batch_size, 1, track_length, 1)
+        original = original.reshape(BATCH_SIZE, 1, -1, 1).to(device)
+        processed = processed.reshape(BATCH_SIZE, 1, -1, 1).to(device)
+        outputs = net(processed).to(device)
+        for j in range(5):
+            torchaudio.save(os.path.join(
+                output_dir, f"original_{i}_{j}.wav"), original[j].reshape(1, -1), FRAMERATE)
+            writer.add_audio(f'original_{i}_{j}', original[j], epoch)
+            torchaudio.save(os.path.join(
+                output_dir, f"processed_{i}_{j}.wav"), processed[j].reshape(1, -1), FRAMERATE)
+            writer.add_audio(f'processed_{i}_{j}', processed[j], epoch)
+            torchaudio.save(os.path.join(
+                output_dir, f"output_{i}_{j}.wav"), outputs[j].reshape(1, -1), FRAMERATE)
+            writer.add_audio(f'output_{i}_{j}', outputs[j], epoch)
+            if i == 0:
+                break
 
 
 def evaluate(net, valloader, valset, criterion, device, epoch):
@@ -161,6 +148,10 @@ def evaluate(net, valloader, valset, criterion, device, epoch):
     for data in valloader:
         original = data['original'].to(device)
         processed = data['processed'].to(device)
+        if processed.shape[0] != BATCH_SIZE:
+            continue
+        original = original.reshape(BATCH_SIZE, 1, -1, 1)
+        processed = processed.reshape(BATCH_SIZE, 1, -1, 1)
         outputs = net(processed)
         loss = criterion(outputs, original)
         running_loss += loss.item()
@@ -168,23 +159,7 @@ def evaluate(net, valloader, valset, criterion, device, epoch):
     print('Validation Loss: {:.3f}'.format(loss))
     writer.add_scalar('Loss/validation', loss, epoch)
     net.train()
-    save_test_example(epoch, net, valset, device)
-
-
-def test(net, valloader, device):
-    val_loss = 0.0
-    with torch.no_grad():
-        for data in valloader:
-            original = data['original'].to(device)
-            processed = data['processed'].to(device)
-            outputs = net(processed)
-            # save sample
-            torchaudio.save('DAE-checkpoints/sample.wav',
-                            outputs.cpu(), FRAMERATE)
-            loss = criterion(outputs, original)
-            val_loss += loss.item()
-    val_loss /= len(valloader)
-    print('Val Loss: {:.3f}'.format(loss))
+    save_test_example(epoch, net, valloader, device)
 
 
 def make_dir(dirname):
@@ -193,7 +168,6 @@ def make_dir(dirname):
 
 
 if __name__ == "__main__":
-    make_dir("DAE-checkpoints")
     dataset = AudioDataset(
         raw_path="data/processed",
         processed_path="data/final"
@@ -213,15 +187,20 @@ if __name__ == "__main__":
     valloader = DataLoader(
         valset,
         batch_size=BATCH_SIZE,
-        shuffle=True
+        shuffle=False
     )
 
     device = get_device()
+    # draw_map(DAE)
     DAE = DeepAutoencoder().to(device)
-    draw_map(DAE)
+    if PICKUP_EPOCH > 0:
+        DAE.load_state_dict(torch.load(
+            f'./models/dae_{PICKUP_EPOCH}.pth'))
     criterion = nn.MSELoss()
     optimizer = optim.Adam(
         DAE.parameters(), lr=LEARNING_RATE, weight_decay=DECAY)
 
+    data = next(iter(trainloader))
+
     train(DAE, trainloader, valloader, valset,
-          NUM_EPOCHS, device, criterion, optimizer)
+          PICKUP_EPOCH, NUM_EPOCHS, device, criterion, optimizer)
