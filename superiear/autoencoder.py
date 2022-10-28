@@ -165,7 +165,6 @@ if __name__ == "__main__":
 
     train_loss = train(DAE, trainloader, valloader, NUM_EPOCHS, device, criterion, optimizer)
     save_test_example(DAE, valset, device)
-    train_loss = 0
     plt.figure()
     plt.plot(train_loss)
     plt.title('Train Loss')
