@@ -133,5 +133,9 @@ data
 data/
 
 DAE-checkpoints
-val_examples
+DAE
+DAE.pdf
 val_examples/
+loss.png
+models/
+runs/

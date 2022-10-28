@@ -82,6 +82,7 @@ websocket-client==1.4.1
 zipp==3.9.0
 matplotlib==3.6.1
 pydub==0.25.1
-torch==1.14.0.dev20221020
-torchvision==0.15.0.dev20221020
+torch==1.12.1
+torchvision==0.13.1
+torchaudio==0.12.1
 tqdm==4.64.1
