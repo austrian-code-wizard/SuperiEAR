@@ -63,7 +63,7 @@ class DeepAutoencoder(nn.Module):
             nn.Linear(256, 512),
             nn.ReLU(True),
             nn.Linear(512, TRACK_LENGTH * FRAMERATE),
-            nn.Sigmoid()
+            nn.Tanh()
         )
 
     def forward(self, x):
