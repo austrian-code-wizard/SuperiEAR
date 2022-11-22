@@ -140,3 +140,6 @@ loss.png
 models/
 runs/
 .DS_Store
+
+spectral_gating_examples
+spectral_gating_examples/

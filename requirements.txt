@@ -87,3 +87,4 @@ torchvision==0.13.1
 torchaudio==0.12.1
 tensorboard==2.10.1
 tqdm==4.64.1
+noisereduce==2.0.1
