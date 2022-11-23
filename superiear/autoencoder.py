@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset, DataLoader
 from torch.utils.tensorboard import SummaryWriter
+from utils import get_device
 
 
 import time
@@ -17,7 +18,7 @@ LEARNING_RATE = 1e-3
 DECAY = 0.997
 BATCH_SIZE = 128
 TRACK_LENGTH = 7
-FRAMERATE = int(44100)
+FRAMERATE = int(16000)
 
 PICKUP_EPOCH = 44
 
@@ -48,7 +49,7 @@ class AudioDataset(Dataset):
         processed, _ = torchaudio.load(f"{self.processed_path}/{file}")
         processed = torch.mean(processed, dim=0)
         assert raw.shape == processed.shape, f"Raw and processed shapes do not match: {raw.shape} vs {processed.shape}"
-        return {'processed': processed, 'original': raw}
+        return {'processed': processed, 'original': raw, 'filename': file}
 
 
 class DeepAutoencoder(nn.Module):
@@ -70,14 +71,6 @@ class DeepAutoencoder(nn.Module):
         x = self.encoder(x)
         x = self.decoder(x)
         return x
-
-
-def get_device():
-    if torch.cuda.is_available():
-        device = 'cuda:0'
-    else:
-        device = 'cpu'
-    return device
 
 
 print("Running from device: ", get_device())
