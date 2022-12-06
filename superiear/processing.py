@@ -15,6 +15,9 @@ FRAMERATE = int(16000)
 @ensure_dir_exists
 def split_sentences(input_dir, output_dir, skip_intro=60, duration=7):
     for raw_filename in tqdm(glob.glob(f"{input_dir}/*.wav")):
+        print(raw_filename)
+        if ".temp.wav" in raw_filename:
+            continue
         track = AudioSegment.from_file(raw_filename)
 
         if skip_intro > 0:

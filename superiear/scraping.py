@@ -6,7 +6,7 @@ from superiear.utils import ensure_dir_exists
 
 
 @ensure_dir_exists
-def download_audio(urls, output_dir, batch_size=16):
+def download_audio(urls, output_dir, batch_size=35):
     """
     Downloads all audio in files in batches into specified directory.
 
