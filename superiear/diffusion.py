@@ -235,8 +235,8 @@ def train_diffusion(net, trainloader, valloader, start_epoch, NUM_EPOCHS, criter
 
 
 def evaluate(net, valloader, criterion, epoch):
-    net.diffusion_embedding.register_buffer('embedding', net.diffusion_embedding._build_embedding(
-        len(INFERENCE_NOISE_SCHEDULE)), persistent=False)
+    #net.diffusion_embedding.register_buffer('embedding', net.diffusion_embedding._build_embedding(
+    #    len(INFERENCE_NOISE_SCHEDULE)), persistent=False)
     net.eval()
     running_loss = 0.0
 
@@ -261,8 +261,8 @@ def evaluate(net, valloader, criterion, epoch):
     loss = running_loss / len(valloader)
     print('Validation Loss: {:.3f}'.format(loss))
     writer.add_scalar('Loss/validation', loss, epoch)
-    net.diffusion_embedding.register_buffer('embedding', net.diffusion_embedding._build_embedding(
-        len(TRAIN_NOISE_SCHEDULE)), persistent=False)
+    #net.diffusion_embedding.register_buffer('embedding', net.diffusion_embedding._build_embedding(
+    #    len(TRAIN_NOISE_SCHEDULE)), persistent=False)
     net.train()
 
 
