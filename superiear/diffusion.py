@@ -23,8 +23,8 @@ PICKUP_EPOCH = 0
 TRAIN_NOISE_SCHEDULE = np.linspace(1e-4, 0.05, 50)
 INFERENCE_NOISE_SCHEDULE = np.array([0.0001, 0.001, 0.01, 0.05, 0.2, 0.5])
 
-RESIDUAL_CHANNELS = 64
-RESIDUAL_LAYERS = 32
+RESIDUAL_CHANNELS = 32
+RESIDUAL_LAYERS = 16
 DILATION_CYCLE_LENGTH = 10
 
 random.seed(0)
@@ -195,9 +195,9 @@ def train_diffusion(net, trainloader, valloader, start_epoch, NUM_EPOCHS, criter
             original = original.reshape(BATCH_SIZE, 1, -1).to(device)
             processed = processed.reshape(BATCH_SIZE, 1, -1).to(device)
             t = torch.randint(0, len(TRAIN_NOISE_SCHEDULE), [1], device=device)
-            noise_scale = noise_level[t].unsqueeze(1)
+            noise_scale = noise_level[t].unsqueeze(1).to(device)
             noise_scale_sqrt = noise_scale**0.5
-            noise = torch.randn_like(original)
+            noise = torch.randn_like(original).to(device)
             noisy_audio = noise_scale_sqrt * original + \
                 (1.0 - noise_scale)**0.5 * noise
             optimizer.zero_grad()
@@ -310,7 +310,8 @@ if __name__ == "__main__":
         raw_path="data/clear_samples",
         processed_path="data/noisy_samples",
     )
-    dataset.files = dataset.files[:10]
+    dataset.files = dataset.files[:20]
+    print(dataset.files)
 
     trainset, valset = torch.utils.data.random_split(
         dataset, [int(len(dataset) * 0.8), len(dataset) - int(len(dataset) * 0.8)])
@@ -341,3 +342,4 @@ if __name__ == "__main__":
 
     train_diffusion(Diff, trainloader, valloader,
                     PICKUP_EPOCH, NUM_EPOCHS, criterion, optimizer)
+    print(dataset.files)

@@ -23,7 +23,7 @@ ENGLISH_TRANSCRIBE_TOKEN_IDX = 50258
 def transcribe_audio(model, processor, audio, device="cuda"):
     """Generates takes from raw wave data"""
 
-    input_features = processor(list(audio.numpy()), sampling_rate=FRAMERATE, return_tensors="pt").input_features.to(device)
+    input_features = processor(list(audio.cpu().numpy()), sampling_rate=FRAMERATE, return_tensors="pt").input_features.to(device)
     with torch.no_grad():
         logits = model.generate(input_features, decoder_input_ids=torch.tensor([[ENGLISH_TRANSCRIBE_TOKEN_IDX] for _ in range(len(audio))]).to(device), max_length=64)
     texts = processor.batch_decode(logits)
@@ -65,7 +65,7 @@ def evaluate_models(clean_samples, noisy_samples, models, asr_model, asr_process
                 batch_transcriptions[model_name] = denoised_asr
             for idx in range(len(denoised)):
                 torchaudio.save(os.path.join(
-                    output_dir, f"test_{model_name}" , f"{data['filename'][idx]}"), denoised[idx].reshape(1, -1), FRAMERATE)
+                    output_dir, f"test_{model_name}" , f"{data['filename'][idx]}"), denoised[idx].reshape(1, -1).cpu(), FRAMERATE)
         for idx in range(len(data['filename'])):
             transcriptions[data['filename'][idx]] = {
                 label: batch_transcriptions[label][idx] for label in batch_transcriptions
@@ -109,8 +109,8 @@ def run_eval(clear_path, noisy_path, output_file, models, asr_model_size="tiny")
 
 
 if __name__ == "__main__":
-    diff_net = diffusion_model("./models/diffusion_990.pth")
-    run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results.json", {
+    diff_net = diffusion_model("./models/diffusion_670.pth")
+    run_eval("./data/test_clear_small", "./data/test_noisy_small", "./data/test_results.json", {
         "spectral": spectral_model,
         "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape)
     })

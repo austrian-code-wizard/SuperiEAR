@@ -12,10 +12,10 @@ class AudioDataset(Dataset):
         self.raw_path = raw_path
         self.processed_path = processed_path
         self.files = [f.split("/")[-1]
-                      for f in glob.glob(f"{processed_path}/*.wav")][:10]
+                      for f in glob.glob(f"{processed_path}/*.wav")]
 
         raw_files = [f.split("/")[-1]
-                     for f in glob.glob(f"{raw_path}/*.wav")][:10]
+                     for f in glob.glob(f"{raw_path}/*.wav")]
         assert all(
             f in raw_files for f in self.files), "Some processed files are not in the raw file folder"
 
