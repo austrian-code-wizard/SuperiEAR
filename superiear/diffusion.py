@@ -14,7 +14,7 @@ import numpy as np
 from math import sqrt
 
 NUM_EPOCHS = 1000 # change to 1000
-LEARNING_RATE = 2e-3
+LEARNING_RATE = 2e-4
 DECAY = 0.999
 BATCH_SIZE = 8
 
@@ -24,7 +24,7 @@ TRAIN_NOISE_SCHEDULE = np.linspace(1e-4, 0.05, 50)
 INFERENCE_NOISE_SCHEDULE = np.array([0.0001, 0.001, 0.01, 0.05, 0.2, 0.5])
 
 RESIDUAL_CHANNELS = 32
-RESIDUAL_LAYERS = 32
+RESIDUAL_LAYERS = 20
 DILATION_CYCLE_LENGTH = 10
 
 random.seed(0)
@@ -228,9 +228,9 @@ def train_diffusion(net, trainloader, valloader, start_epoch, NUM_EPOCHS, criter
         train_loss.append(loss)
         print('Epoch {}. Train Loss: {:.3f} Time: {:.3f}'.format(
             epoch, loss, time.time() - t0))
-        if epoch % 10 == 0:
+        if epoch % 50 == 0:
             torch.save(net.state_dict(), f'./models/diffusion_{epoch}.pth')
-        evaluate(net, valloader, criterion, epoch)
+        #evaluate(net, valloader, criterion, epoch)
     return train_loss
 
 
