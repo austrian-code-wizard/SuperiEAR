@@ -14,7 +14,7 @@ import numpy as np
 from math import sqrt
 
 NUM_EPOCHS = 1000 # change to 1000
-LEARNING_RATE = 2e-4
+LEARNING_RATE = 2e-3
 DECAY = 0.999
 BATCH_SIZE = 8
 
@@ -24,7 +24,7 @@ TRAIN_NOISE_SCHEDULE = np.linspace(1e-4, 0.05, 50)
 INFERENCE_NOISE_SCHEDULE = np.array([0.0001, 0.001, 0.01, 0.05, 0.2, 0.5])
 
 RESIDUAL_CHANNELS = 32
-RESIDUAL_LAYERS = 16
+RESIDUAL_LAYERS = 32
 DILATION_CYCLE_LENGTH = 10
 
 random.seed(0)
@@ -250,14 +250,14 @@ def evaluate(net, valloader, criterion, epoch):
         outputs = infer(net, processed)
         loss = criterion(outputs, original)
         writer.add_scalar('OG_loss/val', loss.item(), epoch)
-        sc_loss, mag_loss = mrstftloss(
-            outputs.squeeze(1), original.squeeze(1))
-        loss += sc_loss + mag_loss
+        #sc_loss, mag_loss = mrstftloss(
+        #    outputs.squeeze(1), original.squeeze(1))
+        #loss += sc_loss + mag_loss
         writer.add_scalar('Loss/val', loss.item(), epoch)
-        writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
-        writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
-        writer.add_scalar('Loss/stfs_total_val',
-                          mag_loss.item() + sc_loss.item(), epoch)
+        #writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
+        #writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
+        #writer.add_scalar('Loss/stfs_total_val',
+        #                  mag_loss.item() + sc_loss.item(), epoch)
     loss = running_loss / len(valloader)
     print('Validation Loss: {:.3f}'.format(loss))
     writer.add_scalar('Loss/validation', loss, epoch)
