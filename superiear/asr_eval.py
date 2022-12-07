@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader
 from torchmetrics.functional import word_error_rate
 from transformers import WhisperForConditionalGeneration, WhisperProcessor
 
+from diffusion import diffusion_model, infer
 from utils import get_device
 from spectral_gate import spectral_model
 from autoencoder import AudioDataset, FRAMERATE
@@ -33,7 +34,6 @@ def transcribe_audio(model, processor, audio, device="cuda"):
 
 def evaluate_models(clean_samples, noisy_samples, models, asr_model, asr_processor, device="cuda"):
     dataset = AudioDataset(clean_samples, noisy_samples)
-    dataset.files = dataset.files[:49]
     eval_loader = DataLoader(
         dataset,
         batch_size=BATCH_SIZE,
@@ -109,6 +109,8 @@ def run_eval(clear_path, noisy_path, output_file, models, asr_model_size="tiny")
 
 
 if __name__ == "__main__":
+    diff_net = diffusion_model("./models/diffusion_990.pth")
     run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results.json", {
-        "spectral": spectral_model
+        "spectral": spectral_model,
+        "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape)
     })

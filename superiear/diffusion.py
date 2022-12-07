@@ -6,7 +6,6 @@ from torch.utils.data import DataLoader
 import os
 import torch
 import random
-import torchaudio
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
@@ -14,21 +13,19 @@ import numpy as np
 
 from math import sqrt
 
-NUM_EPOCHS = 1000
-LEARNING_RATE = 3e-4
+NUM_EPOCHS = 1000 # change to 1000
+LEARNING_RATE = 2e-4
 DECAY = 0.999
-BATCH_SIZE = 2
-TRACK_LENGTH = 7
-FRAMERATE = int(16000)
+BATCH_SIZE = 8
 
 PICKUP_EPOCH = 0
 
 TRAIN_NOISE_SCHEDULE = np.linspace(1e-4, 0.05, 50)
 INFERENCE_NOISE_SCHEDULE = np.array([0.0001, 0.001, 0.01, 0.05, 0.2, 0.5])
 
-RESIDUAL_CHANNELS = 4
-RESIDUAL_LAYERS = 2
-DILATION_CYCLE_LENGTH = 2
+RESIDUAL_CHANNELS = 64
+RESIDUAL_LAYERS = 32
+DILATION_CYCLE_LENGTH = 10
 
 random.seed(0)
 
@@ -50,7 +47,7 @@ class DiffusionEmbedding(nn.Module):
     def __init__(self, max_steps):
         super().__init__()
         self.register_buffer('embedding', self._build_embedding(
-            NUM_EPOCHS), persistent=False)
+            max_steps), persistent=False)
         self.projection1 = nn.Linear(128, 512)
         self.projection2 = nn.Linear(512, 512)
 
@@ -180,7 +177,7 @@ mrstftloss = MultiResolutionSTFTLoss(factor_sc=0.5,
                                      factor_mag=0.5)
 
 
-def train_diffusion(net, trainloader, valloader, valset, start_epoch, NUM_EPOCHS, criterion, optimizer):
+def train_diffusion(net, trainloader, valloader, start_epoch, NUM_EPOCHS, criterion, optimizer):
     beta = np.array(TRAIN_NOISE_SCHEDULE)
     noise_level = torch.tensor(np.cumprod(1 - beta).astype(np.float32))
     scaler = torch.cuda.amp.GradScaler(enabled=False)
@@ -206,11 +203,11 @@ def train_diffusion(net, trainloader, valloader, valset, start_epoch, NUM_EPOCHS
             optimizer.zero_grad()
             net.to(device)
             outputs = net(noisy_audio, t, processed)
-            loss = criterion(noise, outputs.squeeze(1))
+            loss = criterion(noise, outputs)
             writer.add_scalar('OG_loss/train', loss.item(), epoch)
-            sc_loss, mag_loss = mrstftloss(
-                outputs.squeeze(1), original.squeeze(1))
-            loss += sc_loss + mag_loss
+            #sc_loss, mag_loss = mrstftloss(
+            #    noisy_audio.squeeze(1) - outputs.squeeze(1), original.squeeze(1))
+            #loss += sc_loss + mag_loss
             # loss.backward()
             scaler.scale(loss).backward()
             # optimizer.step()
@@ -219,10 +216,10 @@ def train_diffusion(net, trainloader, valloader, valset, start_epoch, NUM_EPOCHS
             scaler.update()
             running_loss += loss.item()
             writer.add_scalar('Loss/train', loss.item(), epoch)
-            writer.add_scalar('Loss/sc_loss', sc_loss.item(), epoch)
-            writer.add_scalar('Loss/mag_loss', mag_loss.item(), epoch)
-            writer.add_scalar('Loss/stfs_total',
-                              mag_loss.item() + sc_loss.item(), epoch)
+            #writer.add_scalar('Loss/sc_loss', sc_loss.item(), epoch)
+            #writer.add_scalar('Loss/mag_loss', mag_loss.item(), epoch)
+            #writer.add_scalar('Loss/stfs_total',
+            #                  mag_loss.item() + sc_loss.item(), epoch)
             if steps % 100 == 0:
                 print(f'Epoch: {epoch} | Step: {steps} | Loss: {loss.item()}')
             steps += 1
@@ -230,39 +227,16 @@ def train_diffusion(net, trainloader, valloader, valset, start_epoch, NUM_EPOCHS
         writer.add_scalar('Loss/epoch', loss, epoch)
         train_loss.append(loss)
         print('Epoch {}. Train Loss: {:.3f} Time: {:.3f}'.format(
-            epoch+1, loss, time.time() - t0))
-        torch.save(net.state_dict(), f'./models/diffusion_{epoch}.pth')
-        evaluate(net, valloader, valset, criterion, epoch)
+            epoch, loss, time.time() - t0))
+        if epoch % 10 == 0:
+            torch.save(net.state_dict(), f'./models/diffusion_{epoch}.pth')
+        evaluate(net, valloader, criterion, epoch)
     return train_loss
 
 
-def save_test_example(epoch, net, valloader, output_dir="./diff_val_examples"):
-    make_dir(output_dir)
-    output_dir = os.path.join(output_dir, f"epoch_{epoch}")
-    make_dir(output_dir)
-    for i, data in enumerate(valloader):
-        original = data['original'].to(device)
-        processed = data['processed'].to(device)
-        if processed.shape[0] != BATCH_SIZE:
-            continue
-        original = original.reshape(BATCH_SIZE, 1, -1).to(device)
-        processed = processed.reshape(BATCH_SIZE, 1, -1).to(device)
-        outputs = infer(processed).to(device)
-        for j in range(5):
-            orignal_out = original[j].reshape(1, -1).cpu()
-            processed_out = processed[0][0][j].reshape(1, -1).cpu()
-            output_out = outputs[0][0][j].reshape(1, -1).cpu()
-            torchaudio.save(os.path.join(
-                output_dir, f"original_{i}_{j}.wav"), orignal_out, FRAMERATE)
-            torchaudio.save(os.path.join(
-                output_dir, f"processed_{i}_{j}.wav"), processed_out, FRAMERATE)
-            torchaudio.save(os.path.join(
-                output_dir, f"output_{i}_{j}.wav"), output_out, FRAMERATE)
-            if i == 0:
-                break
-
-
-def evaluate(net, valloader, valset, criterion, epoch):
+def evaluate(net, valloader, criterion, epoch):
+    net.diffusion_embedding.register_buffer('embedding', net.diffusion_embedding._build_embedding(
+        len(INFERENCE_NOISE_SCHEDULE)), persistent=False)
     net.eval()
     running_loss = 0.0
 
@@ -273,48 +247,30 @@ def evaluate(net, valloader, valset, criterion, epoch):
             continue
         original = original.reshape(BATCH_SIZE, 1, -1).to(device)
         processed = processed.reshape(BATCH_SIZE, 1, -1).to(device)
-        outputs = infer(processed)
+        outputs = infer(net, processed)
         loss = criterion(outputs, original)
         writer.add_scalar('OG_loss/val', loss.item(), epoch)
-        sc_loss, mag_loss = mrstftloss(
-            outputs.squeeze(1), original.squeeze(1))
-        loss += sc_loss + mag_loss
+        #sc_loss, mag_loss = mrstftloss(
+        #    outputs.squeeze(1), original.squeeze(1))
+        #loss += sc_loss + mag_loss
         running_loss += loss.item()
         writer.add_scalar('Loss/val', loss.item(), epoch)
-        writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
-        writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
-        writer.add_scalar('Loss/stfs_total_val',
-                          mag_loss.item() + sc_loss.item(), epoch)
+        #writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
+        #writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
+        #writer.add_scalar('Loss/stfs_total_val',
+        #                  mag_loss.item() + sc_loss.item(), epoch)
     loss = running_loss / len(valloader)
     print('Validation Loss: {:.3f}'.format(loss))
     writer.add_scalar('Loss/validation', loss, epoch)
+    net.diffusion_embedding.register_buffer('embedding', net.diffusion_embedding._build_embedding(
+        len(TRAIN_NOISE_SCHEDULE)), persistent=False)
     net.train()
-    save_test_example(epoch, net, valloader)
 
 
-def infer(processed):
-
-    Diff = DiffWave(INFERENCE_NOISE_SCHEDULE).to(device)
-    Diff.to(device)
-    print(f"Loading model from epoch {PICKUP_EPOCH}")
-    Diff.load_state_dict(torch.load(
-        f"./models/diffusion_{PICKUP_EPOCH}.pth"))
-
-    talpha = 1 - TRAIN_NOISE_SCHEDULE
-    talpha_cum = np.cumprod(talpha)
-
+def infer(net, processed):
     beta = INFERENCE_NOISE_SCHEDULE
     alpha = 1 - beta
     alpha_cum = np.cumprod(alpha)
-    T = []
-    # for s in range(len(INFERENCE_NOISE_SCHEDULE)):
-    #     for t in range(len(TRAIN_NOISE_SCHEDULE) - 1):
-    #         if talpha_cum[t+1] <= alpha_cum[s] <= talpha_cum[t]:
-    #             twiddle = (talpha_cum[t]**0.5 - alpha_cum[s]**0.5) / \
-    #                 (talpha_cum[t]**0.5 - talpha_cum[t+1]**0.5)
-    #             T.append(t + twiddle)
-    #             break
-    # T = np.array(T, dtype=np.float32)
     T = np.array(INFERENCE_NOISE_SCHEDULE, dtype=np.float32)
     audio = torch.randn(
         processed.shape[0],
@@ -322,18 +278,26 @@ def infer(processed):
         processed.shape[-1],
         device=device)
 
-    for n in range(len(alpha) - 1, -1, -1):
-        c1 = 1 / alpha[n]**0.5
-        c2 = beta[n] / (1 - alpha_cum[n])**0.5
-        audio = c1 * (audio - c2 * Diff(audio,
-                      torch.tensor([T[n]], device=audio.device), processed))
-        if n > 0:
-            noise = torch.randn_like(audio)
-            sigma = ((1.0 - alpha_cum[n-1]) /
-                     (1.0 - alpha_cum[n]) * beta[n])**0.5
-            audio += sigma * noise
+    with torch.no_grad():
+        for n in range(len(alpha) - 1, -1, -1):
+            c1 = 1 / alpha[n]**0.5
+            c2 = beta[n] / (1 - alpha_cum[n])**0.5
+            audio = c1 * (audio - c2 * net(audio,
+                        torch.tensor([T[n]], device=audio.device), processed))
+            if n > 0:
+                noise = torch.randn_like(audio)
+                sigma = ((1.0 - alpha_cum[n-1]) /
+                        (1.0 - alpha_cum[n]) * beta[n])**0.5
+                audio += sigma * noise
         audio = torch.clamp(audio, -1.0, 1.0)
     return audio
+
+def diffusion_model(path):
+    net = DiffWave(INFERENCE_NOISE_SCHEDULE).to(device)
+    net.to(device)
+    net.load_state_dict(torch.load(path))
+    net.eval()
+    return net
 
 
 def make_dir(dirname):
@@ -346,6 +310,7 @@ if __name__ == "__main__":
         raw_path="data/clear_samples",
         processed_path="data/noisy_samples",
     )
+    dataset.files = dataset.files[:10]
 
     trainset, valset = torch.utils.data.random_split(
         dataset, [int(len(dataset) * 0.8), len(dataset) - int(len(dataset) * 0.8)])
@@ -370,11 +335,9 @@ if __name__ == "__main__":
     if PICKUP_EPOCH:
         Diff.load_state_dict(torch.load(
             f"./models/dae_{PICKUP_EPOCH}.pth"))
-    criterion = nn.MSELoss()
+    criterion = nn.L1Loss()
     optimizer = optim.Adam(
         Diff.parameters(), lr=LEARNING_RATE, weight_decay=DECAY)
 
-    data = next(iter(trainloader))
-
-    train_diffusion(Diff, trainloader, valloader, valset,
+    train_diffusion(Diff, trainloader, valloader,
                     PICKUP_EPOCH, NUM_EPOCHS, criterion, optimizer)
