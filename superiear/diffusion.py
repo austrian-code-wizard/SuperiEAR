@@ -26,9 +26,9 @@ PICKUP_EPOCH = 0
 TRAIN_NOISE_SCHEDULE = np.linspace(1e-4, 0.05, 50)
 INFERENCE_NOISE_SCHEDULE = np.array([0.0001, 0.001, 0.01, 0.05, 0.2, 0.5])
 
-RESIDUAL_CHANNELS = 64
-RESIDUAL_LAYERS = 30
-DILATION_CYCLE_LENGTH = 10
+RESIDUAL_CHANNELS = 4
+RESIDUAL_LAYERS = 2
+DILATION_CYCLE_LENGTH = 2
 
 random.seed(0)
 
@@ -296,8 +296,9 @@ def infer(processed):
 
     Diff = DiffWave(INFERENCE_NOISE_SCHEDULE).to(device)
     Diff.to(device)
+    print(f"Loading model from epoch {PICKUP_EPOCH}")
     Diff.load_state_dict(torch.load(
-        f"./models/dae_{PICKUP_EPOCH}.pth"))
+        f"./models/diffusion_{PICKUP_EPOCH}.pth"))
 
     talpha = 1 - TRAIN_NOISE_SCHEDULE
     talpha_cum = np.cumprod(talpha)
@@ -306,14 +307,15 @@ def infer(processed):
     alpha = 1 - beta
     alpha_cum = np.cumprod(alpha)
     T = []
-    for s in range(len(INFERENCE_NOISE_SCHEDULE)):
-        for t in range(len(TRAIN_NOISE_SCHEDULE) - 1):
-            if talpha_cum[t+1] <= alpha_cum[s] <= talpha_cum[t]:
-                twiddle = (talpha_cum[t]**0.5 - alpha_cum[s]**0.5) / \
-                    (talpha_cum[t]**0.5 - talpha_cum[t+1]**0.5)
-                T.append(t + twiddle)
-                break
-    T = np.array(T, dtype=np.float32)
+    # for s in range(len(INFERENCE_NOISE_SCHEDULE)):
+    #     for t in range(len(TRAIN_NOISE_SCHEDULE) - 1):
+    #         if talpha_cum[t+1] <= alpha_cum[s] <= talpha_cum[t]:
+    #             twiddle = (talpha_cum[t]**0.5 - alpha_cum[s]**0.5) / \
+    #                 (talpha_cum[t]**0.5 - talpha_cum[t+1]**0.5)
+    #             T.append(t + twiddle)
+    #             break
+    # T = np.array(T, dtype=np.float32)
+    T = np.array(INFERENCE_NOISE_SCHEDULE, dtype=np.float32)
     audio = torch.randn(
         processed.shape[0],
         1,

@@ -138,6 +138,7 @@ DAE-checkpoints
 DAE
 DAE.pdf
 val_examples/
+diff_val_examples/
 loss.png
 models/
 runs/
