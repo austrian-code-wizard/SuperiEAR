@@ -13,18 +13,18 @@ import numpy as np
 
 from math import sqrt
 
-NUM_EPOCHS = 1000 # change to 1000
+NUM_EPOCHS = 13000 # change to 1000
 LEARNING_RATE = 2e-4
-DECAY = 0.999
-BATCH_SIZE = 8
+DECAY = 0 # change back to 0.999
+BATCH_SIZE = 16
 
 PICKUP_EPOCH = 0
 
 TRAIN_NOISE_SCHEDULE = np.linspace(1e-4, 0.05, 50)
 INFERENCE_NOISE_SCHEDULE = np.array([0.0001, 0.001, 0.01, 0.05, 0.2, 0.5])
 
-RESIDUAL_CHANNELS = 32
-RESIDUAL_LAYERS = 20
+RESIDUAL_CHANNELS = 64
+RESIDUAL_LAYERS = 30
 DILATION_CYCLE_LENGTH = 10
 
 random.seed(0)
@@ -190,10 +190,10 @@ def train_diffusion(net, trainloader, valloader, start_epoch, NUM_EPOCHS, criter
             original = data['original']
             processed = data['processed']
 
-            if processed.shape[0] != BATCH_SIZE:
+            if processed.shape[0] != original.shape[0]:
                 continue
-            original = original.reshape(BATCH_SIZE, 1, -1).to(device)
-            processed = processed.reshape(BATCH_SIZE, 1, -1).to(device)
+            original = original.reshape(original.shape[0], 1, -1).to(device)
+            processed = processed.reshape(processed.shape[0], 1, -1).to(device)
             t = torch.randint(0, len(TRAIN_NOISE_SCHEDULE), [1], device=device)
             noise_scale = noise_level[t].unsqueeze(1).to(device)
             noise_scale_sqrt = noise_scale**0.5
@@ -228,9 +228,10 @@ def train_diffusion(net, trainloader, valloader, start_epoch, NUM_EPOCHS, criter
         train_loss.append(loss)
         print('Epoch {}. Train Loss: {:.3f} Time: {:.3f}'.format(
             epoch, loss, time.time() - t0))
-        if epoch % 50 == 0:
+        if epoch+1 % 25 == 0:
             torch.save(net.state_dict(), f'./models/diffusion_{epoch}.pth')
-        #evaluate(net, valloader, criterion, epoch)
+        if epoch % 10 == 0:
+            evaluate(net, valloader, criterion, epoch)
     return train_loss
 
 
@@ -239,6 +240,8 @@ def evaluate(net, valloader, criterion, epoch):
     #    len(INFERENCE_NOISE_SCHEDULE)), persistent=False)
     net.eval()
     running_loss = 0.0
+    beta = np.array(TRAIN_NOISE_SCHEDULE)
+    noise_level = torch.tensor(np.cumprod(1 - beta).astype(np.float32))
 
     for data in valloader:
         original = data['original'].to(device)
@@ -247,17 +250,29 @@ def evaluate(net, valloader, criterion, epoch):
             continue
         original = original.reshape(original.shape[0], 1, -1).to(device)
         processed = processed.reshape(processed.shape[0], 1, -1).to(device)
-        outputs = infer(net, processed)
-        loss = criterion(outputs, original)
-        writer.add_scalar('OG_loss/val', loss.item(), epoch)
-        #sc_loss, mag_loss = mrstftloss(
-        #    outputs.squeeze(1), original.squeeze(1))
-        #loss += sc_loss + mag_loss
-        writer.add_scalar('Loss/val', loss.item(), epoch)
-        #writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
-        #writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
-        #writer.add_scalar('Loss/stfs_total_val',
-        #                  mag_loss.item() + sc_loss.item(), epoch)
+        with torch.no_grad():
+            # Compute OG Loss
+            t = torch.randint(0, len(TRAIN_NOISE_SCHEDULE), [1], device=device)
+            noise_scale = noise_level[t].unsqueeze(1).to(device)
+            noise_scale_sqrt = noise_scale**0.5
+            noise = torch.randn_like(original).to(device)
+            noisy_audio = noise_scale_sqrt * original + \
+                (1.0 - noise_scale)**0.5 * noise
+            optimizer.zero_grad()
+            net.to(device)
+            outputs = net(noisy_audio, t, processed)
+            og_loss = criterion(noise, outputs)
+
+            outputs = infer(net, processed)
+            sc_loss, mag_loss = mrstftloss(
+                outputs.squeeze(1), original.squeeze(1))
+        writer.add_scalar('OG_loss/val', og_loss.item(), epoch)
+        writer.add_scalar('Loss/val', og_loss.item() + sc_loss.item() + mag_loss.item(), epoch)
+        writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
+        writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
+        writer.add_scalar('Loss/stfs_total_val',
+                          mag_loss.item() + sc_loss.item(), epoch)
+        running_loss += og_loss.item() + sc_loss.item() + mag_loss.item()
     loss = running_loss / len(valloader)
     print('Validation Loss: {:.3f}'.format(loss))
     writer.add_scalar('Loss/validation', loss, epoch)
@@ -325,11 +340,11 @@ if __name__ == "__main__":
         raw_path="data/clear_samples",
         processed_path="data/noisy_samples",
     )
-    dataset.files = dataset.files[:20]
-    print(dataset.files)
+    #dataset.files = dataset.files[:10]
+    #print(dataset.files)
 
     trainset, valset = torch.utils.data.random_split(
-        dataset, [int(len(dataset) * 0.8), len(dataset) - int(len(dataset) * 0.8)])
+        dataset, [int(len(dataset) * 0.9), len(dataset) - int(len(dataset) * 0.9)])
     print(f"Train dataset size: {len(trainset)}")
     print(f"Val dataset size: {len(valset)}")
 
@@ -357,4 +372,4 @@ if __name__ == "__main__":
 
     train_diffusion(Diff, trainloader, valloader,
                     PICKUP_EPOCH, NUM_EPOCHS, criterion, optimizer)
-    print(dataset.files)
+    #print(dataset.files)

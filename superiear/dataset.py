@@ -28,7 +28,9 @@ class AudioDataset(Dataset):
         file = self.files[idx]
         raw, _ = torchaudio.load(f"{self.raw_path}/{file}")
         raw = torch.mean(raw, dim=0)
+        raw = raw[raw.shape[0]//2:]
         processed, _ = torchaudio.load(f"{self.processed_path}/{file}")
         processed = torch.mean(processed, dim=0)
+        processed = processed[processed.shape[0]//2:]
         assert raw.shape == processed.shape, f"Raw and processed shapes do not match: {raw.shape} vs {processed.shape}"
         return {'processed': processed, 'original': raw, 'filename': file}

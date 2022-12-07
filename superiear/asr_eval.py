@@ -109,7 +109,7 @@ def run_eval(clear_path, noisy_path, output_file, models, asr_model_size="tiny")
 
 
 if __name__ == "__main__":
-    diff_net = diffusion_model("./models/diffusion_670.pth")
+    diff_net = diffusion_model("./models/diffusion_900.pth")
     run_eval("./data/test_clear_small", "./data/test_noisy_small", "./data/test_results.json", {
         "spectral": spectral_model,
         "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape)
