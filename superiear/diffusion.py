@@ -243,22 +243,21 @@ def evaluate(net, valloader, criterion, epoch):
     for data in valloader:
         original = data['original'].to(device)
         processed = data['processed'].to(device)
-        if processed.shape[0] != BATCH_SIZE:
+        if processed.shape[0] != original.shape[0]:
             continue
-        original = original.reshape(BATCH_SIZE, 1, -1).to(device)
-        processed = processed.reshape(BATCH_SIZE, 1, -1).to(device)
+        original = original.reshape(original.shape[0], 1, -1).to(device)
+        processed = processed.reshape(processed.shape[0], 1, -1).to(device)
         outputs = infer(net, processed)
         loss = criterion(outputs, original)
         writer.add_scalar('OG_loss/val', loss.item(), epoch)
-        #sc_loss, mag_loss = mrstftloss(
-        #    outputs.squeeze(1), original.squeeze(1))
-        #loss += sc_loss + mag_loss
-        running_loss += loss.item()
+        sc_loss, mag_loss = mrstftloss(
+            outputs.squeeze(1), original.squeeze(1))
+        loss += sc_loss + mag_loss
         writer.add_scalar('Loss/val', loss.item(), epoch)
-        #writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
-        #writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
-        #writer.add_scalar('Loss/stfs_total_val',
-        #                  mag_loss.item() + sc_loss.item(), epoch)
+        writer.add_scalar('Loss/sc_loss_val', sc_loss.item(), epoch)
+        writer.add_scalar('Loss/mag_loss_val', mag_loss.item(), epoch)
+        writer.add_scalar('Loss/stfs_total_val',
+                          mag_loss.item() + sc_loss.item(), epoch)
     loss = running_loss / len(valloader)
     print('Validation Loss: {:.3f}'.format(loss))
     writer.add_scalar('Loss/validation', loss, epoch)
@@ -268,10 +267,26 @@ def evaluate(net, valloader, criterion, epoch):
 
 
 def infer(net, processed):
+    """talpha = 1 - TRAIN_NOISE_SCHEDULE
+    talpha_cum = np.cumprod(talpha)
+
     beta = INFERENCE_NOISE_SCHEDULE
     alpha = 1 - beta
     alpha_cum = np.cumprod(alpha)
-    T = np.array(INFERENCE_NOISE_SCHEDULE, dtype=np.float32)
+
+    T = []
+    for s in range(len(INFERENCE_NOISE_SCHEDULE)):
+      for t in range(len(TRAIN_NOISE_SCHEDULE) - 1):
+        if talpha_cum[t+1] <= alpha_cum[s] <= talpha_cum[t]:
+          twiddle = (talpha_cum[t]**0.5 - alpha_cum[s]**0.5) / (talpha_cum[t]**0.5 - talpha_cum[t+1]**0.5)
+          T.append(t + twiddle)
+          break
+    T = np.array(T, dtype=np.float32)"""
+    alpha = 1 - TRAIN_NOISE_SCHEDULE
+    alpha_cum = np.cumprod(alpha)
+    beta = TRAIN_NOISE_SCHEDULE
+    T = np.array(TRAIN_NOISE_SCHEDULE, dtype=np.float32)
+
     audio = torch.randn(
         processed.shape[0],
         1,
