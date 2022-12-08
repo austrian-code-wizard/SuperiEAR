@@ -9,7 +9,7 @@ import os
 
 
 class Chart:
-    def __init__(self, data_path, model_name, title, tags, labels, xlabel, ylabel):
+    def __init__(self, data_path, model_name, title, tags, labels, xlabel, ylabel, max_epoch=None):
         self.data_path = data_path
         self.model_name = model_name
         self.title = title
@@ -17,6 +17,7 @@ class Chart:
         self.labels = labels
         self.xlabel = xlabel
         self.ylabel = ylabel
+        self.max_epoch = max_epoch
 
     def generate_plot(self):
         plt.title(self.title)
@@ -27,6 +28,8 @@ class Chart:
             steps = []
             print(f"Loading data for {tag}")
             for e in summary_iterator(f"{self.data_path}"):
+                if self.max_epoch is not None and e.step > self.max_epoch:
+                    break
                 for v in e.summary.value:
                     if v.tag == tag:
                         values.append(v.simple_value)
@@ -62,6 +65,16 @@ if __name__ == "__main__":
             labels=["Training loss", "Validation loss (combined)"],
             xlabel="Epoch",
             ylabel="Loss"
+        ),
+        Chart(
+            data_path=DeepConvPath,
+            model_name=DeepConvName,
+            title="Loss per epoch (70 epochs)",
+            tags=["Loss/epoch", "Loss/val"],
+            labels=["Training loss", "Validation loss (combined)"],
+            xlabel="Epoch",
+            ylabel="Loss",
+            max_epoch=70
         ),
         Chart(
             data_path=DiffPath,
