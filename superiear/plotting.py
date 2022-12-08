@@ -20,6 +20,7 @@ def create_plots(file_name):
         directory = f"../data/{path}/{file_name}.wav"
         if not os.path.exists(directory):
             print(f"directory {directory} does not exist, exiting creating plots")
+            return
 
     for path in PATHS:
         directory = f"../data/{path}/{file_name}.wav"
@@ -80,5 +81,5 @@ def plot_waveform(waveform, sample_rate, spec_dir, title="Waveform", xlim=None, 
 
 
 if __name__ == "__main__":
-    # waveform, sample_rate = torchaudio.load("../data/clear_samples/bob_ross_0.wav")
+    # example usage (note no .wav in file name)
     create_plots("bob_ross_0")
