@@ -282,7 +282,7 @@ def evaluate(net, valloader, criterion, epoch):
 
 
 def infer(net, processed):
-    """talpha = 1 - TRAIN_NOISE_SCHEDULE
+    talpha = 1 - TRAIN_NOISE_SCHEDULE
     talpha_cum = np.cumprod(talpha)
 
     beta = INFERENCE_NOISE_SCHEDULE
@@ -296,11 +296,11 @@ def infer(net, processed):
           twiddle = (talpha_cum[t]**0.5 - alpha_cum[s]**0.5) / (talpha_cum[t]**0.5 - talpha_cum[t+1]**0.5)
           T.append(t + twiddle)
           break
-    T = np.array(T, dtype=np.float32)"""
-    alpha = 1 - TRAIN_NOISE_SCHEDULE
+    T = np.array(T, dtype=np.float32)
+    """alpha = 1 - TRAIN_NOISE_SCHEDULE
     alpha_cum = np.cumprod(alpha)
     beta = TRAIN_NOISE_SCHEDULE
-    T = np.array(TRAIN_NOISE_SCHEDULE, dtype=np.float32)
+    T = np.array(TRAIN_NOISE_SCHEDULE, dtype=np.float32)"""
 
     audio = torch.randn(
         processed.shape[0],
