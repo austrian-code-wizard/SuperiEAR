@@ -1,0 +1,2191 @@
+{
+    "summary": {
+        "noisy_wer": {
+            "avg": 0.693,
+            "std": 0.513
+        },
+        "diffusion_wer": {
+            "avg": 0.986,
+            "std": 0.037
+        }
+    },
+    "raw": {
+        "nutrional_instruction_video_3.wav": {
+            "original": "of these things that their learning happens. So we'll go now.",
+            "noisy": "of these things that they're learning have been so good.",
+            "diffusion": "you",
+            "noisy_wer": 0.5454545617103577,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_133.wav": {
+            "original": "or a Hindu you can practice, for example, the sound of a home.",
+            "noisy": "or Hindi practice, please don't take this out upon.",
+            "diffusion": "you",
+            "noisy_wer": 0.8461538553237915,
+            "diffusion_wer": 0.9230769276618958
+        },
+        "obama_mccain_presidential_debate_115.wav": {
+            "original": "I just have to make this general point.",
+            "noisy": "That's it.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_144.wav": {
+            "original": "ruins that holy ecosystem for that river and the bears and the salmon the spawning and",
+            "noisy": "ruins that holy ecosystem for that river and the bears in the salmon, the spawning.",
+            "diffusion": "you",
+            "noisy_wer": 0.25,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_204.wav": {
+            "original": "must be distinguished to the four elements which though",
+            "noisy": "must be distinguished to the four elements which will",
+            "diffusion": "you",
+            "noisy_wer": 0.1111111119389534,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_15.wav": {
+            "original": "to be arugies for the purpose.",
+            "noisy": "the",
+            "diffusion": "you",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "prod_design_56.wav": {
+            "original": "sketches are half drawings and then a bajillion",
+            "noisy": "get your head dry and then up the",
+            "diffusion": "you",
+            "noisy_wer": 0.75,
+            "diffusion_wer": 1.0
+        },
+        "introduction_to_psych_54.wav": {
+            "original": "are what psychologists for some reason have called Confederates.",
+            "noisy": "I just wanted to see you.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "the_shop_s5_e5_21.wav": {
+            "original": "the best chance to go to the certain place. I'm a goal.",
+            "noisy": "the best chance to go to certain places. I'm a goal.",
+            "diffusion": "you",
+            "noisy_wer": 0.1666666716337204,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_162.wav": {
+            "original": "can bats the suggestion that a good man is not happy.",
+            "noisy": "can bats the suggestion that a good man is not happy.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_142.wav": {
+            "original": "Yeah, so I always got something to share. Yeah, let's go. I don't know.",
+            "noisy": "Yeah, let's go. I don't know.",
+            "diffusion": "you",
+            "noisy_wer": 0.5714285969734192,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_174.wav": {
+            "original": "in public life. Theoretically, this was always true.",
+            "noisy": "Theoretically, this was always true.",
+            "diffusion": "you",
+            "noisy_wer": 0.375,
+            "diffusion_wer": 1.0
+        },
+        "famous_celebrities_auditions_18.wav": {
+            "original": "Thanks. Thank you. I next up, Kramer.",
+            "noisy": "Thank you next time about Kramer.",
+            "diffusion": "you",
+            "noisy_wer": 0.7142857313156128,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_278.wav": {
+            "original": "There are cases in which the connection is obvious.",
+            "noisy": "There are cases in which the connection is obvious.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_76.wav": {
+            "original": "food and when the men do not hang their kogi pots over the couch.",
+            "noisy": "the food, the man, the hot and bad for eating the food.",
+            "diffusion": "you",
+            "noisy_wer": 0.8571428656578064,
+            "diffusion_wer": 1.0
+        },
+        "prod_design_68.wav": {
+            "original": "what you're comfortable with, right? I love felt-tip pens because it's got a",
+            "noisy": "I'm not going to go in.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "prod_design_69.wav": {
+            "original": "about here. The front face is that curved cube, right?",
+            "noisy": "about here. The front face is that curved view, right?",
+            "diffusion": "you",
+            "noisy_wer": 0.10000000149011612,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_125.wav": {
+            "original": "And this is why Native people, you know, when they see Western people",
+            "noisy": "And this is why they do this.",
+            "diffusion": "you",
+            "noisy_wer": 0.6153846383094788,
+            "diffusion_wer": 0.9230769276618958
+        },
+        "the_art_of_war_107.wav": {
+            "original": "enemies on readiness. Make your way by unexpected route.",
+            "noisy": "Thank you very much.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_187.wav": {
+            "original": "that when my mom got to the emergency room the doctor",
+            "noisy": "that",
+            "diffusion": "you",
+            "noisy_wer": 0.9090909361839294,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_168.wav": {
+            "original": "that I felt and experienced in the monastery into.",
+            "noisy": "It's a great place.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_95.wav": {
+            "original": "noted by the general who has attained a responsible post.",
+            "noisy": "You",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_3.wav": {
+            "original": "and then anytime I call my dad and he's with them they're like hey, where are you",
+            "noisy": "I might call my dad and he's with them. They're like, hey, are you",
+            "diffusion": "you",
+            "noisy_wer": 0.47058823704719543,
+            "diffusion_wer": 0.9411764740943909
+        },
+        "joe_rogan_1403_163.wav": {
+            "original": "I guess it depends how you define weirdness, but I look at an argument.",
+            "noisy": "I guess it depends how you define weirdness, but I look at an eye",
+            "diffusion": "you",
+            "noisy_wer": 0.0714285746216774,
+            "diffusion_wer": 0.9285714030265808
+        },
+        "bob_ross_14.wav": {
+            "original": "very very lightly.",
+            "noisy": "very very lightly",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 1.0
+        },
+        "family_guy_voide_actingf_42.wav": {
+            "original": "It is an absolute",
+            "noisy": "I'm gonna do it.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_53.wav": {
+            "original": "could not have been expected to know that he had been for ten years",
+            "noisy": "I'm gonna put another gun in the back of the gun.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "famous_celebrities_auditions_31.wav": {
+            "original": "Time on top Taking a close up and down",
+            "noisy": "It's a monster",
+            "diffusion": "you",
+            "noisy_wer": 0.8888888955116272,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_236.wav": {
+            "original": "There is no long jabby and with what I'm deram dying.",
+            "noisy": "you",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_103.wav": {
+            "original": "If you are because I think a lot of times people get into such",
+            "noisy": "If you are because I think a lot of times people get into such",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 0.9285714030265808
+        },
+        "chinas_economy_is_in_trouble_3.wav": {
+            "original": "to a country where two thirds of the entire population",
+            "noisy": "relationship to a country with two-folds of the entire population.",
+            "diffusion": "You",
+            "noisy_wer": 0.5,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_246.wav": {
+            "original": "to a good man either in life or death.",
+            "noisy": "to a good man either in life or after death.",
+            "diffusion": "you",
+            "noisy_wer": 0.1111111119389534,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_159.wav": {
+            "original": "with which stoicism affected the mind of Antitha.",
+            "noisy": "with which the mind",
+            "diffusion": "you",
+            "noisy_wer": 0.5,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_43.wav": {
+            "original": "and how men feel I mean granted my dad's plan on a great example",
+            "noisy": "I'm not going to get out of the car.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_17.wav": {
+            "original": "But they didn't have the same language.",
+            "noisy": "But they didn't stop the war.",
+            "diffusion": "you",
+            "noisy_wer": 0.4285714328289032,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_165.wav": {
+            "original": "I think it's funny, which is you it's offensive right and it's",
+            "noisy": "I think it's funny, which is you. It's offensive, right?",
+            "diffusion": "you",
+            "noisy_wer": 0.5,
+            "diffusion_wer": 0.9166666865348816
+        },
+        "the_best_unintentional_ASMR_voice_john_butler_16.wav": {
+            "original": "day with meditation because even in those early months",
+            "noisy": "you",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_1.wav": {
+            "original": "determine the military conditions. Let them be made the basis",
+            "noisy": "I'm sorry.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_193.wav": {
+            "original": "in their house and they're about to move that and they're having to move. But",
+            "noisy": "I'm in the end of having to move.",
+            "diffusion": "you",
+            "noisy_wer": 0.800000011920929,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_5.wav": {
+            "original": "their existence with a grain of salt.",
+            "noisy": "their existence with a grain of salt.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_253.wav": {
+            "original": "side and why is it so compelling to them to come in our",
+            "noisy": "I'm sorry, I'm sorry, I'm sorry.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_193.wav": {
+            "original": "After this it is almost superfluous for us to be assured.",
+            "noisy": "to this it is almost perfect for us to be assured.",
+            "diffusion": "you",
+            "noisy_wer": 0.1818181872367859,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_7.wav": {
+            "original": "because I know she's not going to be there anyway. And I know on some levels.",
+            "noisy": "I know something",
+            "diffusion": "you",
+            "noisy_wer": 0.875,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_6.wav": {
+            "original": "life, you need to come and let me know so that I can",
+            "noisy": "Oh, come on, come on.",
+            "diffusion": "you",
+            "noisy_wer": 0.9230769276618958,
+            "diffusion_wer": 0.9230769276618958
+        },
+        "bob_ross_43.wav": {
+            "original": "landscape, they should get darker in value.",
+            "noisy": "landscape",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_37.wav": {
+            "original": "given to Kingdom of Israel, indicating about how",
+            "noisy": "Excuse me.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "khan_academy_ed_talks_50.wav": {
+            "original": "they have eyes, you know, some of the moons in Saturn.",
+            "noisy": "They have eyes, some of the boots inside.",
+            "diffusion": "you",
+            "noisy_wer": 0.5454545617103577,
+            "diffusion_wer": 0.9090909361839294
+        },
+        "prod_design_3.wav": {
+            "original": "are big companies forget. They don't think about that.",
+            "noisy": "They don't think about that.",
+            "diffusion": "you",
+            "noisy_wer": 0.4444444477558136,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_59.wav": {
+            "original": "because I wanted you.",
+            "noisy": "because I wanted, I want to you.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_70.wav": {
+            "original": "to breeding pair of thylocene, bound for the Bronx Zoo.",
+            "noisy": "to breeding pair of thylocene, bound for the Bronx Zoo.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "begginner_chess_lesson_20.wav": {
+            "original": "your jungle cats video and also",
+            "noisy": "for the cover test video too.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_15.wav": {
+            "original": "the land of Israel permanently, which as a result,",
+            "noisy": "the lack of Israel, apparently, which has result.",
+            "diffusion": "you",
+            "noisy_wer": 0.6666666865348816,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_50.wav": {
+            "original": "on verbal and so the way that the community is signed. Yeah.",
+            "noisy": "on verbal and so the way that the community is signed.",
+            "diffusion": "you",
+            "noisy_wer": 0.0833333358168602,
+            "diffusion_wer": 1.0
+        },
+        "how_succesful_people_think_61.wav": {
+            "original": "itself as doing more than just producing products and making a profit.",
+            "noisy": "itself is doing more than just producing products and making a profit.",
+            "diffusion": "you",
+            "noisy_wer": 0.0833333358168602,
+            "diffusion_wer": 1.0
+        },
+        "the_shop_s5_e5_58.wav": {
+            "original": "because you're a free book guys, or free right guys, that's how they felt. I remember when...",
+            "noisy": "I'm not sure if you can see the camera.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_39.wav": {
+            "original": "him in circles around this tree, but my uncle was so panic.",
+            "noisy": "him in circles around this tree, but my uncle was so panic.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "sidemen_tinder_challenge_23.wav": {
+            "original": "and gorgeous about your eyes. Oh, that's it.",
+            "noisy": "Oh, that's it.",
+            "diffusion": "you",
+            "noisy_wer": 0.625,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_45.wav": {
+            "original": "natural cause runs away from high places and hastens.",
+            "noisy": "natural force, runs away from high places and places.",
+            "diffusion": "you",
+            "noisy_wer": 0.2222222238779068,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_5.wav": {
+            "original": "Specialist, military operations.",
+            "noisy": "Thank you.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_3.wav": {
+            "original": "people hang out all the time. And so it's like a thing that a lot of my friends would be like, yo, you're dad.",
+            "noisy": "You can't be no one.",
+            "diffusion": "you",
+            "noisy_wer": 0.9583333134651184,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_159.wav": {
+            "original": "Millions of years. Yeah. This like it's an",
+            "noisy": "Millions of years.",
+            "diffusion": "you",
+            "noisy_wer": 0.625,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_52.wav": {
+            "original": "less we make use of local guides. In war,",
+            "noisy": "less remains in war.",
+            "diffusion": "you",
+            "noisy_wer": 0.8888888955116272,
+            "diffusion_wer": 1.0
+        },
+        "bob_ross_10.wav": {
+            "original": "and now see if you start.",
+            "noisy": "I'll see if you start.",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 0.8333333134651184
+        },
+        "joe_rogan_1403_55.wav": {
+            "original": "lived underground that eight people. Remember that? This is Bukchicks? Was that",
+            "noisy": "We've done the ground at eight people. Remember that? This book, chicks?",
+            "diffusion": "you",
+            "noisy_wer": 0.75,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_55.wav": {
+            "original": "or at least their situations that don't really",
+            "noisy": "or on this there's such an interesting thing.",
+            "diffusion": "you",
+            "noisy_wer": 0.875,
+            "diffusion_wer": 1.0
+        },
+        "bob_ross_84.wav": {
+            "original": "instructional video tape. We have numerous other tapes.",
+            "noisy": "instructional video tape. We had numerous other tapes.",
+            "diffusion": "you",
+            "noisy_wer": 0.125,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_24.wav": {
+            "original": "This is the time when you should look up for the happenings from ancient times.",
+            "noisy": "Thank you.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.9333333373069763
+        },
+        "south_america_shamans_169.wav": {
+            "original": "Okay, that you gave half of it away to someone.",
+            "noisy": "Okay. That you, you gave her for the latest.",
+            "diffusion": "you",
+            "noisy_wer": 0.8999999761581421,
+            "diffusion_wer": 0.8999999761581421
+        },
+        "a_guide_to_stoicism_124.wav": {
+            "original": "and knowledge, but still it had to be admitted that nature supplied the",
+            "noisy": "the knowledge, but still it had to be admitted that nature supplied this",
+            "diffusion": "you",
+            "noisy_wer": 0.1538461595773697,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_180.wav": {
+            "original": "with it all, he was playing and un-astandacious.",
+            "noisy": "with all these things and the consequences.",
+            "diffusion": "you",
+            "noisy_wer": 0.875,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_93.wav": {
+            "original": "good or ill. What prompted desire by its prospect?",
+            "noisy": "Good, good. What part do you desire about your last part?",
+            "diffusion": "You",
+            "noisy_wer": 1.1111111640930176,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_90.wav": {
+            "original": "and spread around all over the region, making other religions.",
+            "noisy": "and spread it out, rolling over the region, making other religions.",
+            "diffusion": "you",
+            "noisy_wer": 0.30000001192092896,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_31.wav": {
+            "original": "more than a cultural and political entity in central",
+            "noisy": "more than a couch or a bed or a tent or something.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_175.wav": {
+            "original": "has some really great stories that you shared with us. We want to go to like a spook like",
+            "noisy": "That's the biggest mistake here. One bullet is stupid.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.9473684430122375
+        },
+        "sidemen_tinder_challenge_43.wav": {
+            "original": "I have all of us which one would you really take home if you have",
+            "noisy": "I have all of us which one would you really take home if you have?",
+            "diffusion": "You can see that.",
+            "noisy_wer": 0.06666667014360428,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_144.wav": {
+            "original": "It would not not be that too young, but you're all enough to be.",
+            "noisy": "We're not like too young, but you like just all enough to be.",
+            "diffusion": "you",
+            "noisy_wer": 0.5714285969734192,
+            "diffusion_wer": 1.0
+        },
+        "how_succesful_people_think_23.wav": {
+            "original": "you're running a business, leading a department, pasturing a",
+            "noisy": "your running of business, meeting at a apartment, pastoring at",
+            "diffusion": "You",
+            "noisy_wer": 0.7777777910232544,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_14.wav": {
+            "original": "My dad was obviously like not to like yeah go for it",
+            "noisy": "My dad was obviously like not like yeah, go for it",
+            "diffusion": "you",
+            "noisy_wer": 0.1666666716337204,
+            "diffusion_wer": 1.0
+        },
+        "khan_academy_ed_talks_48.wav": {
+            "original": "We have been talking about things very far away, but I think lately you have",
+            "noisy": "We have been talking about things very far away, but I think later you'll have",
+            "diffusion": "you",
+            "noisy_wer": 0.13333334028720856,
+            "diffusion_wer": 0.9333333373069763
+        },
+        "obama_mccain_presidential_debate_36.wav": {
+            "original": "as a result of having to pay for the financial rescue plan.",
+            "noisy": "stage as we jump in the face.",
+            "diffusion": "you",
+            "noisy_wer": 0.9166666865348816,
+            "diffusion_wer": 1.0
+        },
+        "cnn_news_coverage_7.wav": {
+            "original": "with the caravans with the people with a lot of we shut it down we had",
+            "noisy": "with the care of it and all the people who shut it down.",
+            "diffusion": "you",
+            "noisy_wer": 0.75,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_89.wav": {
+            "original": "the two arm is equal. It is not easy to provoke.",
+            "noisy": "The rank for the two armies is equal. It is not easy to prevail.",
+            "diffusion": "you",
+            "noisy_wer": 0.4545454680919647,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_231.wav": {
+            "original": "That's fun, really.",
+            "noisy": "It's fun.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "soccer_explained_3.wav": {
+            "original": "had with other Americans as well as like myself six years ago.",
+            "noisy": "I think we can go over to America soon.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_85.wav": {
+            "original": "like. These were the gambling wings of the spirit like the",
+            "noisy": "the light. These were the gamble engines of the spirit like the Froueline",
+            "diffusion": "you",
+            "noisy_wer": 0.4545454680919647,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_32.wav": {
+            "original": "natural remedies to cleanse the body and",
+            "noisy": "you",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "how_cyber_warfar_actually_works_0.wav": {
+            "original": "available. Exploits. All it took was one drive,",
+            "noisy": "That's right.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_96.wav": {
+            "original": "How did we get to this place? And she was like, you did this.",
+            "noisy": "We get the...",
+            "diffusion": "you",
+            "noisy_wer": 0.9285714030265808,
+            "diffusion_wer": 0.9285714030265808
+        },
+        "soccer_explained_8.wav": {
+            "original": "was potentially about 30 seconds away from scoring, which creates this kind of...",
+            "noisy": "is potentially about 30 seconds away from scoring, which creates this kind of",
+            "diffusion": "you",
+            "noisy_wer": 0.1538461595773697,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_139.wav": {
+            "original": "against alternative energy like solar and wind and biodiesel.",
+            "noisy": "Next time, we're going to have to explore the five of these.",
+            "diffusion": "you",
+            "noisy_wer": 1.3333333730697632,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_156.wav": {
+            "original": "And the other trash says we have had great success, but it's very",
+            "noisy": "you",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_80.wav": {
+            "original": "doing that. But if you looked out of the studio here and you",
+            "noisy": "doing that. But if you looked out of the studio here and you",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 0.9230769276618958
+        },
+        "south_america_shamans_136.wav": {
+            "original": "Okay, I'm glad you do it. Such a big surprise.",
+            "noisy": "I think I'll see you in the next video.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.8999999761581421
+        },
+        "h3_podcast_ghost_stories_217.wav": {
+            "original": "The fuck, we're gonna wear that. And they would bark.",
+            "noisy": "Oh fuck, what kind of weird I- And they would fart",
+            "diffusion": "you",
+            "noisy_wer": 0.699999988079071,
+            "diffusion_wer": 1.0
+        },
+        "introduction_to_psych_17.wav": {
+            "original": "Don't rule if you know this don't ruin it for the other individual",
+            "noisy": "Oh, oh, oh, oh.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.9230769276618958
+        },
+        "sidemen_tinder_challenge_2.wav": {
+            "original": "He's on the other side.",
+            "noisy": "You're a genius.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "the_simple_genius_of_interstate_highway_systems_10.wav": {
+            "original": "in a year featuring technologies such as electric refrigerators, air",
+            "noisy": "In a year, if you treat technology such as electric or feed raiders, air",
+            "diffusion": "you",
+            "noisy_wer": 0.8999999761581421,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_109.wav": {
+            "original": "you're misplacing your own value and other people and you're kind of seeking extra",
+            "noisy": "This place in your own value and other people in your kind of state.",
+            "diffusion": "you",
+            "noisy_wer": 0.5,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_42.wav": {
+            "original": "experts who showed that the most",
+            "noisy": "You",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_8.wav": {
+            "original": "I don't know if anyone knows how to do it.",
+            "noisy": "Dear Wyatt!",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_40.wav": {
+            "original": "stars and you can bring that quality into",
+            "noisy": "stars and you can really bet.",
+            "diffusion": "You",
+            "noisy_wer": 0.5,
+            "diffusion_wer": 1.0
+        },
+        "khan_academy_vectors_5.wav": {
+            "original": "How do you multiply matrices? How do you invert a matrices? How do you find that the",
+            "noisy": "Why matrices?",
+            "diffusion": "you",
+            "noisy_wer": 0.9411764740943909,
+            "diffusion_wer": 0.9411764740943909
+        },
+        "10_greatest_movie_speaches_6.wav": {
+            "original": "I am willing.",
+            "noisy": "I am willing to",
+            "diffusion": "you",
+            "noisy_wer": 0.6666666865348816,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_14.wav": {
+            "original": "missed the teaching entirely, to them it was a secret. So that's the sort",
+            "noisy": "So that's the sort of",
+            "diffusion": "you",
+            "noisy_wer": 0.7857142686843872,
+            "diffusion_wer": 1.0
+        },
+        "introduction_to_psych_21.wav": {
+            "original": "and that's what we think we might think we might know. Now we might not be totally certain.",
+            "noisy": "Yeah.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_109.wav": {
+            "original": "in Mexico? Yes, I'm going to Mexico on",
+            "noisy": "Um, and lots of them. Yeah, so we're going to the next one.",
+            "diffusion": "you",
+            "noisy_wer": 1.375,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_8.wav": {
+            "original": "the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning",
+            "noisy": "the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning to rise and the sun was beginning",
+            "diffusion": "I'm going to take a picture.",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 0.9833333492279053
+        },
+        "a_guide_to_stoicism_190.wav": {
+            "original": "guesses, misgivings, half intuitions, semi-cars",
+            "noisy": "Yes, it's misgivin' it's half intuition. It's semi-conscious.",
+            "diffusion": "you",
+            "noisy_wer": 1.399999976158142,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_282.wav": {
+            "original": "as preserved by Aryan from which the insherber",
+            "noisy": "as reserved by Aryan.",
+            "diffusion": "you",
+            "noisy_wer": 0.75,
+            "diffusion_wer": 1.0
+        },
+        "cnn_news_coverage_12.wav": {
+            "original": "just to let you know how positive that is. I want to talk about the farm bill.",
+            "noisy": "I'm not a pro.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.9411764740943909
+        },
+        "the_shop_s5_e5_49.wav": {
+            "original": "They can take the game away from you.",
+            "noisy": "The",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_136.wav": {
+            "original": "about things really indifferent on the ground that",
+            "noisy": "I'm so happy to see you again.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_129.wav": {
+            "original": "it is absolutely important that we have a unified",
+            "noisy": "That's it.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "soccer_explained_44.wav": {
+            "original": "They're still probably not going to win all these tournaments just because of the wear and tear.",
+            "noisy": "They're probably not going to win all these tournaments just because of the weather and care.",
+            "diffusion": "you",
+            "noisy_wer": 0.1764705926179886,
+            "diffusion_wer": 1.0
+        },
+        "introduction_to_psych_25.wav": {
+            "original": "Now you have already learning the lesson. Go opposite. Whatever I thought, go opposite.",
+            "noisy": "Now you've already learned the lesson. Go opposite. Whatever I thought, go opposite.",
+            "diffusion": "I'm going to show you the way it is.",
+            "noisy_wer": 0.2142857164144516,
+            "diffusion_wer": 0.9285714030265808
+        },
+        "how_succesful_people_think_24.wav": {
+            "original": "will make you aware of any gaps between what you desire and",
+            "noisy": "will make you aware of any gaps between what you desire.",
+            "diffusion": "you",
+            "noisy_wer": 0.1666666716337204,
+            "diffusion_wer": 0.9166666865348816
+        },
+        "introduction_to_psych_1.wav": {
+            "original": "it was a best seller, you know, even when it wasn't assigned.",
+            "noisy": "you",
+            "diffusion": "you",
+            "noisy_wer": 0.9166666865348816,
+            "diffusion_wer": 0.9166666865348816
+        },
+        "bob_ross_71.wav": {
+            "original": "personality. We'll get a touch of paint thinner.",
+            "noisy": "I'm just gonna try to try to put it in the middle.",
+            "diffusion": "you",
+            "noisy_wer": 1.5,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_140.wav": {
+            "original": "This is a shark king to.",
+            "noisy": "This is a shark king to I imagine the air with lost Billy",
+            "diffusion": "you",
+            "noisy_wer": 1.3333333730697632,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_35.wav": {
+            "original": "my parents and everything. I was like, I know he was there, like I saw",
+            "noisy": "I'm gonna fly it.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "nutrional_instruction_video_11.wav": {
+            "original": "you can use this. The child will identify",
+            "noisy": "You can use this the job will identify",
+            "diffusion": "you",
+            "noisy_wer": 0.5,
+            "diffusion_wer": 0.875
+        },
+        "grocery_store_51.wav": {
+            "original": "I'm gonna chop up his leg. Okay, that was kind of weird. He cautiously made",
+            "noisy": "I'm going to try to say that was kind of weird.",
+            "diffusion": "you",
+            "noisy_wer": 0.6000000238418579,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_79.wav": {
+            "original": "was also that in which impulses were generated.",
+            "noisy": "was also that in which impulse would generate",
+            "diffusion": "Okay, okay.",
+            "noisy_wer": 0.375,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_121.wav": {
+            "original": "fucking it up. He's literally eating it. Yeah, yeah. They're pulling chunks out.",
+            "noisy": "Look at the yellow. Yeah, yeah, they're pulling jumps high",
+            "diffusion": "you",
+            "noisy_wer": 0.8461538553237915,
+            "diffusion_wer": 1.0
+        },
+        "the_best_unintentional_ASMR_voice_john_butler_26.wav": {
+            "original": "Stops us, setting out on the spiritual life.",
+            "noisy": "Stop.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_69.wav": {
+            "original": "And if the rest of the family can't back you up on that, they can keep their distance",
+            "noisy": "And if they're right, they can keep it.",
+            "diffusion": "you",
+            "noisy_wer": 0.7222222089767456,
+            "diffusion_wer": 0.9444444179534912
+        },
+        "south_america_shamans_196.wav": {
+            "original": "it's what happens during the",
+            "noisy": "This is what I'm doing.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_58.wav": {
+            "original": "had been chosen by the God of East Rale and also.",
+            "noisy": "It's so...",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_26.wav": {
+            "original": "Thanks for sharing.",
+            "noisy": "What?",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_128.wav": {
+            "original": "such as whether you put out your finger this way or that.",
+            "noisy": "as whether you want to help your finger this way or that.",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 0.9166666865348816
+        },
+        "chinas_economy_is_in_trouble_32.wav": {
+            "original": "now would be a complete disaster, both on a humanitarian.",
+            "noisy": "Yeah, it's a good idea.",
+            "diffusion": "you",
+            "noisy_wer": 0.8999999761581421,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_112.wav": {
+            "original": "But there's gotta be preconditions and those preconditions.",
+            "noisy": "but there's gotta be preconditions and those preconditions.",
+            "diffusion": "you",
+            "noisy_wer": 0.125,
+            "diffusion_wer": 1.0
+        },
+        "family_guy_voide_actingf_33.wav": {
+            "original": "What is it about?",
+            "noisy": "What is it about?",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_121.wav": {
+            "original": "I believe the breath to be essential. This is why in yoga.",
+            "noisy": "This is why",
+            "diffusion": "you",
+            "noisy_wer": 0.75,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_10.wav": {
+            "original": "and she opened the passenger door and began running away.",
+            "noisy": "and she opened the passenger door and began running away.",
+            "diffusion": "You",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_92.wav": {
+            "original": "to save it.",
+            "noisy": "to save it.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_5.wav": {
+            "original": "which Israel is holding such as those who are seeking asylum.",
+            "noisy": "Just the chance.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "the_simple_genius_of_interstate_highway_systems_14.wav": {
+            "original": "In fact, the very lieutenant colonel who provided the earlier reports on",
+            "noisy": "In fact, the varying can earn all the provided into the lower portion of the",
+            "diffusion": "you",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "sidemen_tinder_challenge_74.wav": {
+            "original": "One train day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day",
+            "noisy": "One train day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day, one day",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "how_succesful_people_think_26.wav": {
+            "original": "barriers prevented unauthorized vehicles from getting close to the building.",
+            "noisy": "The barriers prevented unauthorized vehicles from getting pushed to the building.",
+            "diffusion": "you",
+            "noisy_wer": 0.20000000298023224,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_13.wav": {
+            "original": "I'm just determined to get you all to talk to each other. I'm gonna try.",
+            "noisy": "I'm just a term and it gets you all to talk to you. I'm no friend.",
+            "diffusion": "you",
+            "noisy_wer": 0.6000000238418579,
+            "diffusion_wer": 0.9333333373069763
+        },
+        "history_of_zen_buddhism_6.wav": {
+            "original": "Mahakashapa, who is one of his monastics, one of his monks.",
+            "noisy": "Mahakashapa who is one of his. Minasters one of his monks.",
+            "diffusion": "you",
+            "noisy_wer": 0.27272728085517883,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_29.wav": {
+            "original": "something where that harmony and nature creates",
+            "noisy": "I'm gonna go to the next one.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "begginner_chess_lesson_33.wav": {
+            "original": "you wanted to defend this guy or maybe you just castled because it's",
+            "noisy": "I wanted to defend this alive. Maybe I'll just cancel because it's",
+            "diffusion": "you",
+            "noisy_wer": 0.4615384638309479,
+            "diffusion_wer": 0.9230769276618958
+        },
+        "how_cyber_warfar_actually_works_35.wav": {
+            "original": "the very core of the nation's nuclear",
+            "noisy": "training centers, U.S.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_99.wav": {
+            "original": "three years ago. But I know it will take time. I'm finally feeling",
+            "noisy": "Thanks for watching. Thank you all for taking a closer time. Bye.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_25.wav": {
+            "original": "the police came to the streets after the French",
+            "noisy": "What the hell?",
+            "diffusion": "you",
+            "noisy_wer": 0.8888888955116272,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_182.wav": {
+            "original": "and the rainforest, the air and the space. You don't really think",
+            "noisy": "The rainforest, the air, and the spiced.",
+            "diffusion": "you",
+            "noisy_wer": 0.6666666865348816,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_117.wav": {
+            "original": "and the press and octane",
+            "noisy": "and the president, Archie Danica, he did not save the court.",
+            "diffusion": "you",
+            "noisy_wer": 1.7999999523162842,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_157.wav": {
+            "original": "technology which will determine whether or not we are going to be competitive.",
+            "noisy": "Whether or not we are gonna be",
+            "diffusion": "you",
+            "noisy_wer": 0.6153846383094788,
+            "diffusion_wer": 1.0
+        },
+        "greatest_recorded_speeches_american_history_8.wav": {
+            "original": "are the freedom of press.",
+            "noisy": "of the freedom of grace.",
+            "diffusion": "you",
+            "noisy_wer": 0.4000000059604645,
+            "diffusion_wer": 1.0
+        },
+        "famous_celebrities_auditions_6.wav": {
+            "original": "But am I supposed to say?",
+            "noisy": "What am I supposed to say?",
+            "diffusion": "you",
+            "noisy_wer": 0.1666666716337204,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_92.wav": {
+            "original": "my skin crawl. That's weird because I love them. Yeah, I'm sure they're your favorite.",
+            "noisy": "my skin crawl. That's weird, I love them. Yeah, I'm sure they're your favorite.",
+            "diffusion": "You",
+            "noisy_wer": 0.13333334028720856,
+            "diffusion_wer": 1.0
+        },
+        "prod_design_65.wav": {
+            "original": "perspective and sometimes I'll literally doodle in class just cubes.",
+            "noisy": "perspective. Sometimes, all the little little people are fired.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "family_guy_voide_actingf_1.wav": {
+            "original": "you know, Jesus,",
+            "noisy": "Jesus",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.6666666865348816
+        },
+        "bob_ross_16.wav": {
+            "original": "If you think it lips somewhere else",
+            "noisy": "You",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.8571428656578064
+        },
+        "introduction_to_psych_36.wav": {
+            "original": "principle. How many letter F's do you find in this",
+            "noisy": "How many letter F's do you find your letter?",
+            "diffusion": "you",
+            "noisy_wer": 0.30000001192092896,
+            "diffusion_wer": 0.8999999761581421
+        },
+        "joe_rogan_1403_109.wav": {
+            "original": "of wolf fatalities there are North America for humans.",
+            "noisy": "We'll fatality there are North America for humans.",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_10.wav": {
+            "original": "with an obviously an interest to read.",
+            "noisy": "I'm just a little interested in this.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_58.wav": {
+            "original": "meditation with that intention to let go of something.",
+            "noisy": "and just saying meditation would I do attention to that course?",
+            "diffusion": "you",
+            "noisy_wer": 1.2222222089767456,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_209.wav": {
+            "original": "We're going to lie for you anyway. They were going to lie for you anyways. So send a group chat to the board.",
+            "noisy": "You're gonna lie to me like this? Just a hundred percent.",
+            "diffusion": "you",
+            "noisy_wer": 0.8695651888847351,
+            "diffusion_wer": 0.95652174949646
+        },
+        "h3_podcast_ghost_stories_161.wav": {
+            "original": "I had a lot of waking dreams. I have a lot of waking nightmares to this day.",
+            "noisy": "of all I had a lot of waking dreams. I had a lot of waking nightmares to this day.",
+            "diffusion": "you",
+            "noisy_wer": 0.1764705926179886,
+            "diffusion_wer": 1.0
+        },
+        "bob_ross_82.wav": {
+            "original": "with the one inch breast. See this is a very straight edge here. You can take and just",
+            "noisy": "I'm gonna close you this as a coach for the time being.",
+            "diffusion": "you",
+            "noisy_wer": 0.8888888955116272,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_110.wav": {
+            "original": "the Roman Empire's, data of which can be looked over in the screen.",
+            "noisy": "Daytop which can be...",
+            "diffusion": "you",
+            "noisy_wer": 0.8461538553237915,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_126.wav": {
+            "original": "must be known. The movements of the stars calculated.",
+            "noisy": "and the speed, the new race in the state is calculated.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_54.wav": {
+            "original": "cave with these huge openings wasn't even discovered until I think",
+            "noisy": "cave with these huge openings wasn't even discovered until I think",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_107.wav": {
+            "original": "I would love to.",
+            "noisy": "I would love to.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_64.wav": {
+            "original": "just in correspondence with the rational fantasy.",
+            "noisy": "this some correspondence in the rational fantasy.",
+            "diffusion": "you",
+            "noisy_wer": 0.4285714328289032,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_38.wav": {
+            "original": "in 2008, the 13th century of the world.",
+            "noisy": "That's the most important measure in these dishes, actually.",
+            "diffusion": "you",
+            "noisy_wer": 1.125,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_15.wav": {
+            "original": "be the discovery of the century. And I think it would kind",
+            "noisy": "be the discovery of the century. And I think it would kind",
+            "diffusion": "You",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_237.wav": {
+            "original": "of the origin of our planetary system out of the solar nebulae.",
+            "noisy": "The origin of our planet theory is just an outer solar level.",
+            "diffusion": "you",
+            "noisy_wer": 0.75,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_96.wav": {
+            "original": "this whole period where I try to have sex with him more than a couple of",
+            "noisy": "this whole period where I try to have sex with him more than a couple of",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_23.wav": {
+            "original": "And I look at making the choice of who you would want to take care of your child.",
+            "noisy": "I'm gonna run back and get the train somewhere. I want to take care of you.",
+            "diffusion": "you",
+            "noisy_wer": 0.7222222089767456,
+            "diffusion_wer": 0.9444444179534912
+        },
+        "history_of_israel_documentary_102.wav": {
+            "original": "actually first came in light, where there were those financial crisis",
+            "noisy": "Well there were those fine-ancho-quake.",
+            "diffusion": "you",
+            "noisy_wer": 0.7272727489471436,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_232.wav": {
+            "original": "the air, which gave form and figure to the inert matter on",
+            "noisy": "the air.",
+            "diffusion": "you",
+            "noisy_wer": 0.9166666865348816,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_23.wav": {
+            "original": "nations, so as to maintain that peace within.",
+            "noisy": "So it's time to dance.",
+            "diffusion": "you",
+            "noisy_wer": 0.875,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_37.wav": {
+            "original": "and by Christopher Columbus and dropped in Florida.",
+            "noisy": "That's insane.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_96.wav": {
+            "original": "family issues like that door opens up and I'm in a",
+            "noisy": "Thank you.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_71.wav": {
+            "original": "probably have other limitations.",
+            "noisy": "probably have other things.",
+            "diffusion": "you",
+            "noisy_wer": 0.25,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_141.wav": {
+            "original": "videos of bears catching salmon as they're jumping up the",
+            "noisy": "videos and airs catching salmon jumping up the",
+            "diffusion": "you",
+            "noisy_wer": 0.4000000059604645,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_48.wav": {
+            "original": "the mind that's created that picture of this harmony that",
+            "noisy": "Shhh!",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_84.wav": {
+            "original": "the Jewish people enjoyed and thus which may them be",
+            "noisy": "which is the Jewish people in Jordan.",
+            "diffusion": "you",
+            "noisy_wer": 0.8999999761581421,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_129.wav": {
+            "original": "you know, so you're kind of stuck in camp. So I'd be the one flipping over logs",
+            "noisy": "you know, so you're kind of stuck in camp. So I'd be the one flipping over logs.",
+            "diffusion": "you",
+            "noisy_wer": 0.05882352963089943,
+            "diffusion_wer": 0.9411764740943909
+        },
+        "ksi_deji_9.wav": {
+            "original": "Did not help yourself at all you was the only you",
+            "noisy": "You",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.9090909361839294
+        },
+        "history_of_israel_documentary_55.wav": {
+            "original": "terms of birth of economy and population in comparison to",
+            "noisy": "the",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_22.wav": {
+            "original": "at the time, my mom had also like maybe like a year after it done",
+            "noisy": "at the time.",
+            "diffusion": "You",
+            "noisy_wer": 0.8666666746139526,
+            "diffusion_wer": 1.0
+        },
+        "family_guy_voide_actingf_3.wav": {
+            "original": "The fans always know exactly who we we",
+            "noisy": "The parents always know exactly who he was.",
+            "diffusion": "you",
+            "noisy_wer": 0.375,
+            "diffusion_wer": 1.0
+        },
+        "how_succesful_people_think_71.wav": {
+            "original": "of the Peter F. Drucker Foundation for Non-profit Management.",
+            "noisy": "of the Peter F. Trucker Foundation for Non-profit Management.",
+            "diffusion": "you",
+            "noisy_wer": 0.1111111119389534,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_57.wav": {
+            "original": "and how Bob amongst the enemy. This is the after retaining.",
+            "noisy": "and hubbub amongst the enemy. This is the archery chain.",
+            "diffusion": "you",
+            "noisy_wer": 0.3636363744735718,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_90.wav": {
+            "original": "from this episode, all 100, I really passionate about language.",
+            "noisy": "and see from this episode, all 100 are really passionate about language.",
+            "diffusion": "you",
+            "noisy_wer": 0.4000000059604645,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_144.wav": {
+            "original": "and allergy to duty. The term in question was first used by",
+            "noisy": "and allergy to be. The training question was first used",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_229.wav": {
+            "original": "We'll get to the air drop at the Jamie. Sure if you got the image. Yeah, I got it here.",
+            "noisy": "We'll get you to Ares our outfit to game chart. You got the image. Yeah, I got it.",
+            "diffusion": "You",
+            "noisy_wer": 0.6000000238418579,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_209.wav": {
+            "original": "I didn't cry to be able to see some of these animals you only see",
+            "noisy": "I didn't cry to be able to see some of these animals the only she",
+            "diffusion": "you",
+            "noisy_wer": 0.13333334028720856,
+            "diffusion_wer": 0.9333333373069763
+        },
+        "toxic_reddit_stories_164.wav": {
+            "original": "this was kind of like her one last shot. Like she already didn't want to go.",
+            "noisy": "that this was kind of like a little much on.",
+            "diffusion": "you",
+            "noisy_wer": 0.75,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_230.wav": {
+            "original": "Yeah, sorry about that. You might not put it on Instagram.",
+            "noisy": "Yeah, sorry about that you might not put it on Instagram",
+            "diffusion": "you",
+            "noisy_wer": 0.27272728085517883,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_64.wav": {
+            "original": "Like three feet tall. Grow it going into tall grass, right? What's that?",
+            "noisy": "We can go. Girl, it's going into tall grass.",
+            "diffusion": "you",
+            "noisy_wer": 0.7692307829856873,
+            "diffusion_wer": 1.0
+        },
+        "begginner_chess_lesson_27.wav": {
+            "original": "night can't attack a night because that's like",
+            "noisy": "night can't attack a night because that's like on",
+            "diffusion": "you",
+            "noisy_wer": 0.125,
+            "diffusion_wer": 1.0
+        },
+        "the_shop_s5_e5_25.wav": {
+            "original": "Yeah, yeah, yeah, yeah. I come on the bathroom, he's up the...",
+            "noisy": "You",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "the_shop_s5_e5_15.wav": {
+            "original": "is the number one thing.",
+            "noisy": "You",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "how_cyber_warfar_actually_works_32.wav": {
+            "original": "where actual physical center",
+            "noisy": "where actual physical center features were using some tricks.",
+            "diffusion": "you",
+            "noisy_wer": 1.25,
+            "diffusion_wer": 1.0
+        },
+        "how_succesful_people_think_28.wav": {
+            "original": "person to go beyond vague ideas. And engage in specific",
+            "noisy": "and",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_105.wav": {
+            "original": "body language and every I know he's doing that intentionally for the animal but",
+            "noisy": "body language. I know he's doing that intentionally for the animal, but",
+            "diffusion": "you",
+            "noisy_wer": 0.2857142984867096,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_73.wav": {
+            "original": "by a process of division. Three books on the solution of the life.",
+            "noisy": "by a process of division. Three books on the solution of the life.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "how_succesful_people_think_55.wav": {
+            "original": "in your family, in your work, in our nation.",
+            "noisy": "Family, wood, carnation.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_194.wav": {
+            "original": "You said that earlier too, but you're good. I got to blame the weed.",
+            "noisy": "You said that earlier too. Do you want to say that earlier too? You're good, I guess.",
+            "diffusion": "you",
+            "noisy_wer": 0.9285714030265808,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_270.wav": {
+            "original": "of communion with God and good men was the possession",
+            "noisy": "You got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me, you got me,",
+            "diffusion": "you",
+            "noisy_wer": 4.5,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_0.wav": {
+            "original": "Okay, well we had our anniversary. We did.",
+            "noisy": "Okay, well we had our anniversary.",
+            "diffusion": "you",
+            "noisy_wer": 0.25,
+            "diffusion_wer": 1.0
+        },
+        "prod_design_74.wav": {
+            "original": "If you can master the basics of perspective, just draw these cubes.",
+            "noisy": "If you can master the basics of perspective.",
+            "diffusion": "you",
+            "noisy_wer": 0.4166666567325592,
+            "diffusion_wer": 0.9166666865348816
+        },
+        "south_america_shamans_22.wav": {
+            "original": "in a way that is universal and I think that's a beauty.",
+            "noisy": "I think you're in a person.",
+            "diffusion": "you",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_100.wav": {
+            "original": "It is too far over their religious and spiritual practices.",
+            "noisy": "to follow their religious spiritual practices.",
+            "diffusion": "you",
+            "noisy_wer": 0.6000000238418579,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_98.wav": {
+            "original": "things that you could bring to someone and get out of someone. Have you",
+            "noisy": "things that you could bring to someone and get out of someone. Have you",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 0.9285714030265808
+        },
+        "khan_academy_ed_talks_37.wav": {
+            "original": "see here the stellar clips right",
+            "noisy": "And here is the skeleton.",
+            "diffusion": "you",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_12.wav": {
+            "original": "And a vegetarian, our tantric Buddhism in that regard.",
+            "noisy": "Now, if I drill down our tentric footers in the net with guard, because in the",
+            "diffusion": "you",
+            "noisy_wer": 1.5555555820465088,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_65.wav": {
+            "original": "Now, let's bring back your career,",
+            "noisy": "There's a small one over here.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_35.wav": {
+            "original": "life to separate like your dad on",
+            "noisy": "like to separate like your dad on.",
+            "diffusion": "you",
+            "noisy_wer": 0.2857142984867096,
+            "diffusion_wer": 1.0
+        },
+        "sidemen_tinder_challenge_54.wav": {
+            "original": "Even though we had it in the back of our lives, never do that to you. I've never done that.",
+            "noisy": "Even though we had it in the back of our lives, never do that to you. I'm never doing that.",
+            "diffusion": "you",
+            "noisy_wer": 0.10000000149011612,
+            "diffusion_wer": 1.0
+        },
+        "prod_design_57.wav": {
+            "original": "here in this looks like toast. I mean it looks like a grilled cheese sandwich.",
+            "noisy": "This looks like so, I don't know if they're growing in the sand.",
+            "diffusion": "you",
+            "noisy_wer": 0.800000011920929,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_10.wav": {
+            "original": "to the forces of nature without you know hiding",
+            "noisy": "I think that's what we're trying to do without the high",
+            "diffusion": "you",
+            "noisy_wer": 1.2222222089767456,
+            "diffusion_wer": 0.8888888955116272
+        },
+        "call_her_daddy_94.wav": {
+            "original": "It's just a domino effect of like me being hard on myself.",
+            "noisy": "Just a couple of happy blood.",
+            "diffusion": "you",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_55.wav": {
+            "original": "emotions, lives in the nervous system, and how do you let go?",
+            "noisy": "emotions, looks in the nervous system. And thank you, let go.",
+            "diffusion": "you",
+            "noisy_wer": 0.5833333134651184,
+            "diffusion_wer": 0.9166666865348816
+        },
+        "soccer_explained_39.wav": {
+            "original": "You wafer is Europe. That's where like",
+            "noisy": "The most fun is your support like this.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_149.wav": {
+            "original": "14, 15. Still quite young there. Yeah.",
+            "noisy": "Okay.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_194.wav": {
+            "original": "I don't want to talk about that. It's difficult to talk about.",
+            "noisy": "I'm sorry.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "greatest_recorded_speeches_american_history_16.wav": {
+            "original": "Thank you.",
+            "noisy": "Ahhhhhhhhhh",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_66.wav": {
+            "original": "and make trouble for them and keep them constantly engaged.",
+            "noisy": "and make trouble for them and keep them constantly engaged.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_76.wav": {
+            "original": "not to be able to hear in a way and not to be able to interact with",
+            "noisy": "not to be able to hear in a way and not to be able to interact with",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_0.wav": {
+            "original": "back, my own kids some hooks in.",
+            "noisy": "No, he was here.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_47.wav": {
+            "original": "to the hair and took it into her heart. And it was the same hair",
+            "noisy": "lift the hair.",
+            "diffusion": "you",
+            "noisy_wer": 0.9333333373069763,
+            "diffusion_wer": 1.0
+        },
+        "soccer_explained_26.wav": {
+            "original": "So, widely saw and after two of the most well known coaches right now",
+            "noisy": "So I have a son, two of them are supposed to be not so cheap and straightened.",
+            "diffusion": "you",
+            "noisy_wer": 1.0714285373687744,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_53.wav": {
+            "original": "And if learning a second language is the means for that, they're better off for it.",
+            "noisy": "And if learning exactly what you're going to do, just put that through a better offer.",
+            "diffusion": "you",
+            "noisy_wer": 0.8125,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_161.wav": {
+            "original": "No, you can't be sensitive and I'm not a super sensitive person, but there are",
+            "noisy": "No, you can't be sensitive and I'm not a super sensitive person, but there are",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 0.9333333373069763
+        },
+        "toxic_reddit_stories_27.wav": {
+            "original": "if your son needs somebody, I'm there for him. And whoever you decide once",
+            "noisy": "I'm going to decide.",
+            "diffusion": "you",
+            "noisy_wer": 0.9285714030265808,
+            "diffusion_wer": 0.9285714030265808
+        },
+        "obama_mccain_presidential_debate_111.wav": {
+            "original": "with Brezhnev and Drop Off or Shernenko.",
+            "noisy": "with passion.",
+            "diffusion": "you",
+            "noisy_wer": 0.8571428656578064,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_71.wav": {
+            "original": "interested in some of the more speculative concepts with an",
+            "noisy": "trust and answer more.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_39.wav": {
+            "original": "in 8th or 9th century BCE.",
+            "noisy": "in eighth and eighth.",
+            "diffusion": "You",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_98.wav": {
+            "original": "weeks ago. But apparently since he told me that he's",
+            "noisy": "There's a guy here. He's still talking about this guy.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "soccer_explained_29.wav": {
+            "original": "to the championship for the next season and replace by three",
+            "noisy": "to championship for the next season and replace by three",
+            "diffusion": "you",
+            "noisy_wer": 0.09090909361839294,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_49.wav": {
+            "original": "be interested in it because we came and watched it. Well, no.",
+            "noisy": "It's my turn.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_251.wav": {
+            "original": "Though they might have him killed or vanished or disfranchised.",
+            "noisy": "so they might have him killed or vanished or just franchise.",
+            "diffusion": "you",
+            "noisy_wer": 0.30000001192092896,
+            "diffusion_wer": 1.0
+        },
+        "begginner_chess_lesson_54.wav": {
+            "original": "check when I see it. It just means let me scan it. Okay. Captures. You have any captures",
+            "noisy": "check when I see it. It just means let me scan it. Okay captures. You have any captures.",
+            "diffusion": "you",
+            "noisy_wer": 0.1666666716337204,
+            "diffusion_wer": 1.0
+        },
+        "joe_rogan_1403_61.wav": {
+            "original": "through and drove to try and figure out, you know, are these animals?",
+            "noisy": "through in droves to try and figure out, you know, are these animals?",
+            "diffusion": "I have to go.",
+            "noisy_wer": 0.1538461595773697,
+            "diffusion_wer": 0.9230769276618958
+        },
+        "family_guy_voide_actingf_43.wav": {
+            "original": "I'm",
+            "noisy": "I'm still on playling toopman.",
+            "diffusion": "you",
+            "noisy_wer": 4.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_195.wav": {
+            "original": "was not the sage, an emission which each of the stoics",
+            "noisy": "And a mission which each is full.",
+            "diffusion": "you",
+            "noisy_wer": 0.8181818127632141,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_107.wav": {
+            "original": "long long years from 66 to 100.",
+            "noisy": "The last one is from 6 to 6 to 100.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "bob_ross_74.wav": {
+            "original": "color on the brush and maybe let's go through",
+            "noisy": "Cover on the brush and maybe let's go do",
+            "diffusion": "you",
+            "noisy_wer": 0.2222222238779068,
+            "diffusion_wer": 1.0
+        },
+        "sidemen_tinder_challenge_9.wav": {
+            "original": "while it's the best contagious thing.",
+            "noisy": "Oh, it's so hot.",
+            "diffusion": "you",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_29.wav": {
+            "original": "I was laying with my back to the wall.",
+            "noisy": "Back to the...",
+            "diffusion": "you",
+            "noisy_wer": 0.8888888955116272,
+            "diffusion_wer": 1.0
+        },
+        "khan_academy_ed_talks_18.wav": {
+            "original": "in a longer period of time they begin.",
+            "noisy": "you",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_35.wav": {
+            "original": "is all what gives us trouble.",
+            "noisy": "is all what gives us trouble.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "chinas_economy_is_in_trouble_26.wav": {
+            "original": "risk. And if not calculated properly, these",
+            "noisy": "risky and if not calculated properly these are very",
+            "diffusion": "you",
+            "noisy_wer": 0.7142857313156128,
+            "diffusion_wer": 1.0
+        },
+        "cnn_news_coverage_29.wav": {
+            "original": "time you shut it down and didn't work. I will take the man who was shutting down.",
+            "noisy": "I'm going to go.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.9411764740943909
+        },
+        "khan_academy_ed_talks_66.wav": {
+            "original": "mechanical engineering electrical engineering yourself what engineering",
+            "noisy": "I like to be so worried",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "10_greatest_movie_speaches_18.wav": {
+            "original": "make it one half second to slow too fast",
+            "noisy": "One half-checking from strong and fast.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "how_cyber_warfar_actually_works_7.wav": {
+            "original": "These, some will be caught shortly after and quickly addressed with a patch.",
+            "noisy": "Thank you.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_58.wav": {
+            "original": "you roll the country as president of the United States.",
+            "noisy": "you rule the country as President of the United States.",
+            "diffusion": "you",
+            "noisy_wer": 0.20000000298023224,
+            "diffusion_wer": 0.8999999761581421
+        },
+        "south_america_shamans_167.wav": {
+            "original": "in my life I don't like things being too easy.",
+            "noisy": "in life I don't like things being too easy.",
+            "diffusion": "you",
+            "noisy_wer": 0.10000000149011612,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_41.wav": {
+            "original": "the metaphor from the vineyard on the ground that the fruit and the trees and the",
+            "noisy": "the metaphor from the vineyard on the ground of the food and the trees and the water.",
+            "diffusion": "you",
+            "noisy_wer": 0.1875,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_51.wav": {
+            "original": "because I was looking for books. I'm like, I think it would be fascinating to have start reading books.",
+            "noisy": "because I was looking for books and like I think you'll be fascinating to have start reading books.",
+            "diffusion": "This is the last one.",
+            "noisy_wer": 0.2631579041481018,
+            "diffusion_wer": 1.0
+        },
+        "bob_ross_79.wav": {
+            "original": "Oh, we can take some brown and some white.",
+            "noisy": "Oh, you take some brown and some quake.",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 1.0
+        },
+        "soccer_explained_42.wav": {
+            "original": "you can just move down into the Europa League and try to win that.",
+            "noisy": "You can do that.",
+            "diffusion": "you",
+            "noisy_wer": 0.8571428656578064,
+            "diffusion_wer": 0.9285714030265808
+        },
+        "south_america_shamans_60.wav": {
+            "original": "would be to understand that you have fear too.",
+            "noisy": "I'm gonna go.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.8888888955116272
+        },
+        "h3_podcast_ghost_stories_145.wav": {
+            "original": "The camera.",
+            "noisy": "The dollar grab your leg.",
+            "diffusion": "you",
+            "noisy_wer": 2.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_221.wav": {
+            "original": "not carry coal in different strokes.",
+            "noisy": "not very common, different drug yet.",
+            "diffusion": "you",
+            "noisy_wer": 0.8333333134651184,
+            "diffusion_wer": 1.0
+        },
+        "greatest_recorded_speeches_american_history_18.wav": {
+            "original": "We support you and all",
+            "noisy": "We are so lucky.",
+            "diffusion": "you",
+            "noisy_wer": 0.800000011920929,
+            "diffusion_wer": 0.800000011920929
+        },
+        "sidemen_tinder_challenge_28.wav": {
+            "original": "I don't think she had that one.",
+            "noisy": "I don't think she might.",
+            "diffusion": "you",
+            "noisy_wer": 0.4285714328289032,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_73.wav": {
+            "original": "or active karma, we'll often find the worry in",
+            "noisy": "So active karma we'll often find the worry in the",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_103.wav": {
+            "original": "strategy and we need it to succeed but the important thing is,",
+            "noisy": "strategy and we needed to succeed but the important thing is",
+            "diffusion": "you",
+            "noisy_wer": 0.25,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_41.wav": {
+            "original": "Hellenistic kingdoms following the downfalls of Alexander.",
+            "noisy": "The mystic king, the thumbs-ups of Alexander.",
+            "diffusion": "you",
+            "noisy_wer": 0.5714285969734192,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_172.wav": {
+            "original": "He fell into the pool. He was drowning. His parents were having",
+            "noisy": "He fell into the pool. He was drowning. His parents were having",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_250.wav": {
+            "original": "believe that it was not permitted by the divine law for a",
+            "noisy": "You",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_107.wav": {
+            "original": "So I, and I don't know where this",
+            "noisy": "So I don't know where this",
+            "diffusion": "you",
+            "noisy_wer": 0.25,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_9.wav": {
+            "original": "I wish there was a moral to that story. I wish I could say I figured it out.",
+            "noisy": "I wish there was a mole to that story. I wish I could say that. Thank you.",
+            "diffusion": "you",
+            "noisy_wer": 0.2777777910232544,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_34.wav": {
+            "original": "better known to ourselves to start with so that it may",
+            "noisy": "better known to ourselves to start with so that it meets",
+            "diffusion": "you",
+            "noisy_wer": 0.09090909361839294,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_56.wav": {
+            "original": "you blew it. Yeah, I wonder I never heard this story.",
+            "noisy": "I'm going to have to go in the water.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 0.9090909361839294
+        },
+        "the_art_of_war_47.wav": {
+            "original": "the devils into the direct and misfortune into gain.",
+            "noisy": "The previous into the... This fortune, into gay.",
+            "diffusion": "you",
+            "noisy_wer": 0.7777777910232544,
+            "diffusion_wer": 1.0
+        },
+        "bbc_russia_interview_46.wav": {
+            "original": "the",
+            "noisy": "It's a sword.",
+            "diffusion": "you",
+            "noisy_wer": 3.0,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_202.wav": {
+            "original": "that that was also being in the Amazon was a risk.",
+            "noisy": "that that was also being in the Amazon was a little",
+            "diffusion": "you",
+            "noisy_wer": 0.09090909361839294,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_18.wav": {
+            "original": "because it gave him some extra spending money. He was on track to",
+            "noisy": "because it gave him some extra spending money. He was on track to",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "sidemen_tinder_challenge_80.wav": {
+            "original": "Thank you.",
+            "noisy": "Thank you.",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "begginner_chess_lesson_43.wav": {
+            "original": "opponents move. If it's not there, it's just a free move.",
+            "noisy": "the opponent's move. If it's not there, it's just a free move.",
+            "diffusion": "you",
+            "noisy_wer": 0.1818181872367859,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_67.wav": {
+            "original": "the surge if he had to decide that again today.",
+            "noisy": "for sure if you had to side that again today.",
+            "diffusion": "you",
+            "noisy_wer": 0.4000000059604645,
+            "diffusion_wer": 1.0
+        },
+        "call_her_daddy_54.wav": {
+            "original": "I just knew we started off. We formed bad habits that we didn't know how to",
+            "noisy": "I'm not going to stop at all. I'm not going to stop at all.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "toxic_reddit_stories_224.wav": {
+            "original": "I wouldn't even give me that. I thought he was just being a selfish asshole.",
+            "noisy": "I wouldn't repeat that I didn't give Mina. I thought it was just Mina so much.",
+            "diffusion": "you",
+            "noisy_wer": 0.7333333492279053,
+            "diffusion_wer": 1.0
+        },
+        "sidemen_tinder_challenge_77.wav": {
+            "original": "Oh",
+            "noisy": "Oh",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "10_greatest_movie_speaches_4.wav": {
+            "original": "Not from tyranny, oppression and first",
+            "noisy": "I'm tearing up the pressure.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_192.wav": {
+            "original": "the one was a form of imperfect descent and the other assignable.",
+            "noisy": "the one with the phone and the phone.",
+            "diffusion": "you",
+            "noisy_wer": 0.6666666865348816,
+            "diffusion_wer": 1.0
+        },
+        "10_greatest_movie_speaches_12.wav": {
+            "original": "You",
+            "noisy": "Thank you.",
+            "diffusion": "you",
+            "noisy_wer": 2.0,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_31.wav": {
+            "original": "from another book on the use of reason where he says that",
+            "noisy": "I'm so full.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_0.wav": {
+            "original": "when I was actually in grade school. Read it.",
+            "noisy": "When I was actually grade school,",
+            "diffusion": "you",
+            "noisy_wer": 0.5555555820465088,
+            "diffusion_wer": 1.0
+        },
+        "the_simple_genius_of_interstate_highway_systems_43.wav": {
+            "original": "and urban centers, which reduced opportunity in these",
+            "noisy": "and urban centers, which reduced opportunity in these",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "how_cyber_warfar_actually_works_41.wav": {
+            "original": "cross the globe and only weaponizing its devious payload when connecting",
+            "noisy": "I'm gonna go back to the other side of the town.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_zen_buddhism_56.wav": {
+            "original": "the co-on. So the question is how could this be recommended when it's so off",
+            "noisy": "the colon.",
+            "diffusion": "you",
+            "noisy_wer": 0.9333333373069763,
+            "diffusion_wer": 1.0
+        },
+        "the_simple_genius_of_interstate_highway_systems_4.wav": {
+            "original": "This convoy though was making the journey specific.",
+            "noisy": "Who's working?",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "begginner_chess_lesson_71.wav": {
+            "original": "like freaking candidates to earn them and there's something. I mean, like it's, you know,",
+            "noisy": "like freaking candidates turn out something like it's, you know, it's",
+            "diffusion": "you",
+            "noisy_wer": 0.6000000238418579,
+            "diffusion_wer": 0.9333333373069763
+        },
+        "south_america_shamans_171.wav": {
+            "original": "was my intention not to go as a tourist and just take photos.",
+            "noisy": "attention.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_134.wav": {
+            "original": "the way of water through ship, which was named as",
+            "noisy": "I had to go home to the workshop with those onions.",
+            "diffusion": "you",
+            "noisy_wer": 1.100000023841858,
+            "diffusion_wer": 1.0
+        },
+        "south_america_shamans_122.wav": {
+            "original": "state which is much more joyous.",
+            "noisy": "state which is much more important to us.",
+            "diffusion": "you",
+            "noisy_wer": 0.5,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_142.wav": {
+            "original": "I'm one of the nerds on his against solar and center of",
+            "noisy": "I've got one of the nerds, so I'm gonna see kids. So, and generally,",
+            "diffusion": "you",
+            "noisy_wer": 0.9166666865348816,
+            "diffusion_wer": 1.0
+        },
+        "the_art_of_war_98.wav": {
+            "original": "and incapable moreover of quailing disorder.",
+            "noisy": "and a... of quailing disorder.",
+            "diffusion": "you",
+            "noisy_wer": 0.3333333432674408,
+            "diffusion_wer": 1.0
+        },
+        "h3_podcast_ghost_stories_249.wav": {
+            "original": "like like the can if he was free will they can't",
+            "noisy": "you",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "history_of_israel_documentary_56.wav": {
+            "original": "Jerusalem that made it much smaller that it was in previous",
+            "noisy": "Oh, sh...",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_69.wav": {
+            "original": "where along the way that he changed his mind and decided that he was",
+            "noisy": "where along the way that he changed his mind and decided that he was",
+            "diffusion": "you",
+            "noisy_wer": 0.0,
+            "diffusion_wer": 1.0
+        },
+        "begginner_chess_lesson_5.wav": {
+            "original": "This is gonna be a very very bad situation because what what is this?",
+            "noisy": "This is a very, very bad situation because what is that?",
+            "diffusion": "you",
+            "noisy_wer": 0.3571428656578064,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_124.wav": {
+            "original": "Let me get this way. We sit down with Akma Denajad and",
+            "noisy": "So I need to enjoy.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "khan_academy_ed_talks_36.wav": {
+            "original": "line the mirrors and we had to turn the instruments, calibrate and sewed together.",
+            "noisy": "What line the mirrors and the other things, and how you break your song together.",
+            "diffusion": "you",
+            "noisy_wer": 0.7142857313156128,
+            "diffusion_wer": 1.0
+        },
+        "a_guide_to_stoicism_234.wav": {
+            "original": "made up of all being who is incorruptible and unjust.",
+            "noisy": "made up of all beings who are incorruptible and unjust.",
+            "diffusion": "you",
+            "noisy_wer": 0.20000000298023224,
+            "diffusion_wer": 1.0
+        },
+        "obama_mccain_presidential_debate_41.wav": {
+            "original": "and cross-less.",
+            "noisy": "You got it.",
+            "diffusion": "you",
+            "noisy_wer": 1.5,
+            "diffusion_wer": 1.0
+        },
+        "grocery_store_24.wav": {
+            "original": "a lot faster because police also begin to feel like Nolan's",
+            "noisy": "a lot faster because please also be going to feel like",
+            "diffusion": "you",
+            "noisy_wer": 0.3636363744735718,
+            "diffusion_wer": 1.0
+        },
+        "nutrional_instruction_video_18.wav": {
+            "original": "student will explain the concept of being healthy.",
+            "noisy": "I'm sorry.",
+            "diffusion": "you",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        },
+        "10_greatest_movie_speaches_24.wav": {
+            "original": "Black man, white. We all want to help one another.",
+            "noisy": "Black man, white. You all want to show something.",
+            "diffusion": "Thanks for watching.",
+            "noisy_wer": 0.4000000059604645,
+            "diffusion_wer": 1.0
+        },
+        "bob_ross_65.wav": {
+            "original": "keep my good shake. Now we can begin working on these leaf",
+            "noisy": "This is the end of the day.",
+            "diffusion": "You",
+            "noisy_wer": 1.0,
+            "diffusion_wer": 1.0
+        }
+    }
+}
