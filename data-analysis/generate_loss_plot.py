@@ -24,19 +24,26 @@ class Chart:
         plt.xlabel(self.xlabel)
         plt.ylabel(self.ylabel)
         for tag in self.tags:
-            values = []
-            steps = []
+            values = {}
             print(f"Loading data for {tag}")
             for e in summary_iterator(f"{self.data_path}"):
                 if self.max_epoch is not None and e.step > self.max_epoch:
                     break
                 for v in e.summary.value:
                     if v.tag == tag:
-                        values.append(v.simple_value)
-                        steps.append(e.step)
+                        if e.step in values:
+                            values[e.step].append(v.simple_value)
+                        else:
+                            values[e.step] = [v.simple_value]
             if len(values) == 0:
                 raise ValueError(
                     f"Could not find tag {tag} in {self.data_path}")
+            # if a step has multiple values, take the mean
+            for step in values:
+                values[step] = sum(values[step]) / len(values[step])
+            steps = list(values.keys())
+            print("Steps:", steps)
+            values = list(values.values())
             plt.plot(steps, values, label=tag)
 
         plt.legend(self.labels)
@@ -49,10 +56,10 @@ class Chart:
         plt.clf()
 
 
-DeepConvPath = "./deep-conv-runs/950-epoch/events.out.tfevents.1670494587.ip-172-31-42-40.24931.0"
+DeepConvPath = "./deep-conv-runs/events.out.tfevents.1670561308.ip-172-31-42-40.15777.0"
 DeepConvName = "DeepConvAE"
 
-DiffPath = "./diff-runs/events.out.tfevents.1670495421.gpu-train-instance.1024.0"
+DiffPath = "./diff-runs/events.out.tfevents.1670495421.gpu-train-instance.1024-2.0"
 DiffName = "Diffusion"
 
 if __name__ == "__main__":
@@ -61,36 +68,25 @@ if __name__ == "__main__":
             data_path=DeepConvPath,
             model_name=DeepConvName,
             title="Loss per epoch",
-            tags=["Loss/epoch", "Loss/val"],
-            labels=["Training loss", "Validation loss (combined)"],
+            tags=["Loss/epoch", "Loss/validation"],
+            labels=["Training loss", "Validation loss"],
             xlabel="Epoch",
             ylabel="Loss"
-        ),
-        Chart(
-            data_path=DeepConvPath,
-            model_name=DeepConvName,
-            title="Loss per epoch (70 epochs)",
-            tags=["Loss/epoch", "Loss/val"],
-            labels=["Training loss", "Validation loss (combined)"],
-            xlabel="Epoch",
-            ylabel="Loss",
-            max_epoch=70
         ),
         Chart(
             data_path=DiffPath,
             model_name=DiffName,
             title="Loss per epoch",
-            tags=["Loss/epoch", "Loss/val"],
-            labels=["Training loss", "Validation loss (combined)"],
+            tags=["Loss/epoch", "Loss/validation"],
+            labels=["Training loss", "Validation loss"],
             xlabel="Epoch",
             ylabel="Loss"
         ),
-
         Chart(
             data_path=DeepConvPath,
             model_name=DeepConvName,
             title="Validation loss per epoch",
-            tags=["Loss/stfs_total_val", "OG_loss/val", "Loss/train"],
+            tags=["Loss/stfs_total_val", "OG_loss/val", "Loss/validation"],
             labels=["STFS loss", "L1 loss", "Combined"],
             xlabel="Epoch",
             ylabel="STFS Loss"
@@ -99,7 +95,7 @@ if __name__ == "__main__":
             data_path=DiffPath,
             model_name=DiffName,
             title="Validation loss per epoch",
-            tags=["Loss/stfs_total_val", "OG_loss/val", "Loss/train"],
+            tags=["Loss/stfs_total_val", "OG_loss/val", "Loss/validation"],
             labels=["STFS loss", "L1 loss", "Combined"],
             xlabel="Epoch",
             ylabel="STFS Loss"
