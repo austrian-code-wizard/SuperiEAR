@@ -228,8 +228,8 @@ def train_diffusion(net, trainloader, valloader, start_epoch, NUM_EPOCHS, criter
         train_loss.append(loss)
         print('Epoch {}. Train Loss: {:.3f} Time: {:.3f}'.format(
             epoch, loss, time.time() - t0))
-        if epoch+1 % 25 == 0:
-            torch.save(net.state_dict(), f'./models/diffusion_{epoch}.pth')
+        #if epoch+1 % 25 == 0:
+        torch.save(net.state_dict(), f'./models/diffusion_{epoch}.pth')
         if epoch % 10 == 0:
             evaluate(net, valloader, criterion, epoch)
     return train_loss
@@ -286,6 +286,7 @@ def infer(net, processed):
     talpha_cum = np.cumprod(talpha)
 
     beta = INFERENCE_NOISE_SCHEDULE
+    #beta = TRAIN_NOISE_SCHEDULE
     alpha = 1 - beta
     alpha_cum = np.cumprod(alpha)
 
@@ -309,9 +310,12 @@ def infer(net, processed):
         device=device)
 
     with torch.no_grad():
-        for n in range(len(alpha) - 1, -1, -1):
+        for n in range(len(alpha)-1, -1, -1):
             c1 = 1 / alpha[n]**0.5
             c2 = beta[n] / (1 - alpha_cum[n])**0.5
+            #print(n)
+            #print(T)
+            #print(net.diffusion_embedding.embedding.shape)
             audio = c1 * (audio - c2 * net(audio,
                         torch.tensor([T[n]], device=audio.device), processed))
             if n > 0:
@@ -323,7 +327,7 @@ def infer(net, processed):
     return audio
 
 def diffusion_model(path):
-    net = DiffWave(INFERENCE_NOISE_SCHEDULE).to(device)
+    net = DiffWave(TRAIN_NOISE_SCHEDULE).to(device)
     net.to(device)
     net.load_state_dict(torch.load(path))
     net.eval()

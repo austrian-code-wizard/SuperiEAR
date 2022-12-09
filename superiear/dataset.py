@@ -13,7 +13,7 @@ class AudioDataset(Dataset):
         self.processed_path = processed_path
         self.files = [f.split("/")[-1]
                       for f in glob.glob(f"{processed_path}/*.wav")]
-
+        
         raw_files = [f.split("/")[-1]
                      for f in glob.glob(f"{raw_path}/*.wav")]
         assert all(

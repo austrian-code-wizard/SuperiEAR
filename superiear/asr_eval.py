@@ -39,7 +39,7 @@ def evaluate_models(clean_samples, noisy_samples, models, asr_model, asr_process
         batch_size=BATCH_SIZE,
         shuffle=False
     )
-
+    print(dataset.files)
     transcriptions = {}
 
     output_dir = "/".join(clean_samples.split("/")[:-1])
@@ -109,8 +109,8 @@ def run_eval(clear_path, noisy_path, output_file, models, asr_model_size="tiny")
 
 
 if __name__ == "__main__":
-    diff_net = diffusion_model("./models/diffusion_900.pth")
-    run_eval("./data/test_clear_small", "./data/test_noisy_small", "./data/test_results.json", {
+    diff_net = diffusion_model("./models/diffusion_40.pth")
+    run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results_40_diff_950_convae.json", {
         "spectral": spectral_model,
         "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape)
     })
