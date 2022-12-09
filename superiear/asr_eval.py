@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader
 from torchmetrics.functional import word_error_rate
 from transformers import WhisperForConditionalGeneration, WhisperProcessor
 
+from diffusion import diffusion_model, infer
 from utils import get_device
 from spectral_gate import spectral_model
 from autoencoder import AudioDataset, FRAMERATE
@@ -22,7 +23,7 @@ ENGLISH_TRANSCRIBE_TOKEN_IDX = 50258
 def transcribe_audio(model, processor, audio, device="cuda"):
     """Generates takes from raw wave data"""
 
-    input_features = processor(list(audio.numpy()), sampling_rate=FRAMERATE, return_tensors="pt").input_features.to(device)
+    input_features = processor(list(audio.cpu().numpy()), sampling_rate=FRAMERATE, return_tensors="pt").input_features.to(device)
     with torch.no_grad():
         logits = model.generate(input_features, decoder_input_ids=torch.tensor([[ENGLISH_TRANSCRIBE_TOKEN_IDX] for _ in range(len(audio))]).to(device), max_length=64)
     texts = processor.batch_decode(logits)
@@ -33,13 +34,12 @@ def transcribe_audio(model, processor, audio, device="cuda"):
 
 def evaluate_models(clean_samples, noisy_samples, models, asr_model, asr_processor, device="cuda"):
     dataset = AudioDataset(clean_samples, noisy_samples)
-    dataset.files = dataset.files[:49]
     eval_loader = DataLoader(
         dataset,
         batch_size=BATCH_SIZE,
         shuffle=False
     )
-
+    print(dataset.files)
     transcriptions = {}
 
     output_dir = "/".join(clean_samples.split("/")[:-1])
@@ -65,7 +65,7 @@ def evaluate_models(clean_samples, noisy_samples, models, asr_model, asr_process
                 batch_transcriptions[model_name] = denoised_asr
             for idx in range(len(denoised)):
                 torchaudio.save(os.path.join(
-                    output_dir, f"test_{model_name}" , f"{data['filename'][idx]}"), denoised[idx].reshape(1, -1), FRAMERATE)
+                    output_dir, f"test_{model_name}" , f"{data['filename'][idx]}"), denoised[idx].reshape(1, -1).cpu(), FRAMERATE)
         for idx in range(len(data['filename'])):
             transcriptions[data['filename'][idx]] = {
                 label: batch_transcriptions[label][idx] for label in batch_transcriptions
@@ -109,6 +109,8 @@ def run_eval(clear_path, noisy_path, output_file, models, asr_model_size="tiny")
 
 
 if __name__ == "__main__":
-    run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results.json", {
-        "spectral": spectral_model
+    diff_net = diffusion_model("./models/diffusion_40.pth")
+    run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results_40_diff_950_convae.json", {
+        "spectral": spectral_model,
+        "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape)
     })
