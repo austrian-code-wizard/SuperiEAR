@@ -9,10 +9,11 @@ from torch.utils.data import DataLoader
 from torchmetrics.functional import word_error_rate
 from transformers import WhisperForConditionalGeneration, WhisperProcessor
 
-from diffusion import diffusion_model, infer
 from utils import get_device
+from dataset import AudioDataset
 from spectral_gate import spectral_model
-from autoencoder import AudioDataset, FRAMERATE
+from diffusion import diffusion_model, infer
+from autoencoder import deep_conv_autoencoder_model
 
 
 BATCH_SIZE = 16
@@ -110,7 +111,7 @@ def run_eval(clear_path, noisy_path, output_file, models, asr_model_size="tiny")
 
 if __name__ == "__main__":
     diff_net = diffusion_model("./models/diffusion_40.pth")
-    convae_net = torch.load("./models/dae_80.pth")
+    convae_net = deep_conv_autoencoder_model("./models/dae_80.pth")
     run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results_40_diff_80_convae.json", {
         "spectral": spectral_model,
         "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape),
