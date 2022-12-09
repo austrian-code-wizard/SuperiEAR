@@ -307,14 +307,6 @@ def infer(processed):
     alpha = 1 - beta
     alpha_cum = np.cumprod(alpha)
     T = []
-    # for s in range(len(INFERENCE_NOISE_SCHEDULE)):
-    #     for t in range(len(TRAIN_NOISE_SCHEDULE) - 1):
-    #         if talpha_cum[t+1] <= alpha_cum[s] <= talpha_cum[t]:
-    #             twiddle = (talpha_cum[t]**0.5 - alpha_cum[s]**0.5) / \
-    #                 (talpha_cum[t]**0.5 - talpha_cum[t+1]**0.5)
-    #             T.append(t + twiddle)
-    #             break
-    # T = np.array(T, dtype=np.float32)
     T = np.array(INFERENCE_NOISE_SCHEDULE, dtype=np.float32)
     audio = torch.randn(
         processed.shape[0],
@@ -366,7 +358,6 @@ if __name__ == "__main__":
 
     Diff = DiffWave(TRAIN_NOISE_SCHEDULE).to(device)
     Diff.to(device)
-    # print(Diff)
     if PICKUP_EPOCH:
         Diff.load_state_dict(torch.load(
             f"./models/dae_{PICKUP_EPOCH}.pth"))
