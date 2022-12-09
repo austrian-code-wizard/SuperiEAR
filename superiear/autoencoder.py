@@ -278,6 +278,14 @@ def evaluate(net, valloader, valset, criterion, epoch):
         save_test_example(epoch, net, valloader)
 
 
+def deep_conv_autoencoder_model(path):
+    model = DeepConvAutoencoder().to(device)
+    # print(DAE)
+    model.load_state_dict(torch.load(path))
+    model.eval()
+    return model
+
+
 def make_dir(dirname):
     if not os.path.exists(dirname):
         os.makedirs(dirname)
