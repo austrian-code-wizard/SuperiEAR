@@ -110,7 +110,9 @@ def run_eval(clear_path, noisy_path, output_file, models, asr_model_size="tiny")
 
 if __name__ == "__main__":
     diff_net = diffusion_model("./models/diffusion_40.pth")
-    run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results_40_diff_950_convae.json", {
+    convae_net = torch.load("./models/dae_80.pth")
+    run_eval("./data/test_clear", "./data/test_noisy", "./data/test_results_40_diff_80_convae.json", {
         "spectral": spectral_model,
-        "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape)
+        "diffusion": lambda x: infer(diff_net, x.reshape(x.shape[0], 1, -1)).reshape(x.shape),
+        "convae": lambda x: convae_net(x.reshape(x.shape[0], 1, 1, -1)).reshape(x.shape)
     })
