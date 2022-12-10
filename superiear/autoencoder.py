@@ -19,7 +19,7 @@ BATCH_SIZE = 64
 TRACK_LENGTH = 7
 FRAMERATE = int(16000)
 
-PICKUP_EPOCH = 144
+PICKUP_EPOCH = 950
 
 random.seed(0)
 
@@ -80,6 +80,8 @@ class DeepConvAutoencoder(nn.Module):
         self.conv_layer_1 = nn.Conv2d(128, chnls_out, 4, padding=1)
         self.activation = nn.Tanh()
 
+        self.embeddings = []
+
     def forward(self, x):
         enc1 = self.down_conv_layer_1(x)
         enc2 = self.down_conv_layer_2(enc1)
@@ -87,6 +89,8 @@ class DeepConvAutoencoder(nn.Module):
         enc4 = self.down_conv_layer_4(enc3)
         enc5 = self.down_conv_layer_5(enc4)
         enc6 = self.down_conv_layer_6(enc5)
+
+        self.embeddings.append(enc6)
 
         dec1 = self.up_conv_layer_1(enc6, enc5)
         dec2 = self.up_conv_layer_2(dec1, enc4)
@@ -99,6 +103,8 @@ class DeepConvAutoencoder(nn.Module):
         final = self.conv_layer_1(final)
         return final
 
+    def get_embeddings(self):
+        return self.embeddings
 
 class UpConvBlock(nn.Module):
     def __init__(self, ip_sz, op_sz, kernel_size=4, stride=2, padding=1, dropout=0.0):
@@ -275,7 +281,7 @@ if __name__ == "__main__":
     print(DAE)
     if PICKUP_EPOCH:
         DAE.load_state_dict(torch.load(
-            f"./models/dae_{PICKUP_EPOCH}.pth"))
+            f"./models/dae_{PICKUP_EPOCH}.pth", map_location='cpu'))
     criterion = nn.MSELoss()
     optimizer = optim.Adam(
         DAE.parameters(), lr=LEARNING_RATE, weight_decay=DECAY)
