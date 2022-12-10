@@ -19,7 +19,7 @@ BATCH_SIZE = 64
 TRACK_LENGTH = 7
 FRAMERATE = int(16000)
 
-PICKUP_EPOCH = 950
+PICKUP_EPOCH = 0
 
 random.seed(0)
 
@@ -281,7 +281,7 @@ if __name__ == "__main__":
     print(DAE)
     if PICKUP_EPOCH:
         DAE.load_state_dict(torch.load(
-            f"./models/dae_{PICKUP_EPOCH}.pth", map_location='cpu'))
+            f"./models2/dae_{PICKUP_EPOCH}.pth"))
     criterion = nn.MSELoss()
     optimizer = optim.Adam(
         DAE.parameters(), lr=LEARNING_RATE, weight_decay=DECAY)
